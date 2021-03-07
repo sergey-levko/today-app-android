@@ -12,7 +12,7 @@
     <string name="settings_preference_about_text">Application developed by Sergey Levko. Minsk, Republic of Belarus.</string>
     <string name="settings_preference_version_title">Version</string>
     <string name="settings_preference_terms_title">Terms &amp; Conditions</string>
-    <string name="settings_preference_terms_url" translatable="false">https://www.gnu.org/licenses/gpl-3.0.en.html</string>
+    <string name="settings_preference_terms_url">https://www.gnu.org/licenses/gpl-3.0.en.html</string>
 
     <string name="days_delimiter" translatable="false">/</string>
 
