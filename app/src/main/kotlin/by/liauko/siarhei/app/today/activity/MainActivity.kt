@@ -2,14 +2,13 @@ package by.liauko.siarhei.app.today.activity
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.content.Context
-import android.content.Intent
-import android.content.SharedPreferences
+import android.content.*
 import android.os.Build
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import by.liauko.siarhei.app.today.R
@@ -65,15 +64,24 @@ class MainActivity : AppCompatActivity() {
 
         val showTotalDays = sharedPreferences.getBoolean(getString(R.string.total_days_key), false)
 
-        val dayOfYearData = dayOfYearPresenter.loadCurrentDayOfYear()
+        val dayOfYearModel = dayOfYearPresenter.loadCurrentDayOfYear()
         val dayText = if (showTotalDays) {
-            dayOfYearData.currentDay.toString() + getString(R.string.days_delimiter) + dayOfYearData.lastDayOfYear.toString()
+            dayOfYearModel.currentDay.toString() + getString(R.string.days_delimiter) + dayOfYearModel.lastDayOfYear.toString()
         } else {
-            dayOfYearData.currentDay.toString()
+            dayOfYearModel.currentDay.toString()
         }
         dayTextView.text = dayText
-        dayProgressBar.progress = dayOfYearData.currentDay
-        dayProgressBar.max = dayOfYearData.lastDayOfYear
+        dayTextView.setOnClickListener {
+            val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            clipboard.setPrimaryClip(ClipData.newPlainText(getString(R.string.clipboard_day_of_year_label), dayOfYearModel.currentDay.toString()))
+            Toast.makeText(
+                applicationContext,
+                R.string.day_copied_toast_message,
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        dayProgressBar.progress = dayOfYearModel.currentDay
+        dayProgressBar.max = dayOfYearModel.lastDayOfYear
     }
 
     private fun createNotificationChannel() {
