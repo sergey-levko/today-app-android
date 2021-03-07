@@ -3,4 +3,25 @@
 
     <string name="today_is_text">Today is</string>
     <string name="day_of_year_text">Day of the year</string>
+
+    <string name="settings_description">Settings</string>
+
+    <string name="settings_title">Settings</string>
+    <string name="app_preference_category_title">Application</string>
+    <string name="about_preference_category_title">About</string>
+    <string name="settings_preference_about_text">Application developed by Sergey Levko. Minsk, Republic of Belarus.</string>
+    <string name="settings_preference_version_title">Version</string>
+    <string name="settings_preference_terms_title">Terms &amp; Conditions</string>
+    <string name="settings_preference_terms_url" translatable="false">https://www.gnu.org/licenses/gpl-3.0.en.html</string>
+
+    <string name="days_delimiter" translatable="false">/</string>
+
+    <string name="today_is_notification_text">Today is</string>
+    <string name="day_of_year_notification_text">day of the year</string>
+
+    <string name="shared_preferences_name" translatable="false">app_shared_preferences</string>
+    <string name="total_days_key" translatable="false">total_days_switcher</string>
+    <string name="status_bar_key" translatable="false">status_bar_switcher</string>
+    <string name="notification_channel_id" translatable="false">4fcec4ec-a165-4b12-ba4e-de495165d140</string>
+    <string name="notification_id_key" translatable="false">notification_id_key</string>
 </resources>

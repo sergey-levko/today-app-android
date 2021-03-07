@@ -1,15 +1,21 @@
 package by.liauko.siarhei.app.today.activity
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import by.liauko.siarhei.app.today.R
 import by.liauko.siarhei.app.today.presenter.DayOfYearPresenter
 import java.text.DateFormat
-import java.util.*
+import java.util.Date
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var dayTextView: TextView
     private lateinit var dayProgressBar: ProgressBar
 
+    private lateinit var sharedPreferences: SharedPreferences
     private lateinit var dayOfYearPresenter: DayOfYearPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,9 +37,18 @@ class MainActivity : AppCompatActivity() {
                 AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
         )
 
+        createNotificationChannel()
+
+        sharedPreferences = applicationContext.getSharedPreferences(getString(R.string.shared_preferences_name), Context.MODE_PRIVATE)
         dayOfYearPresenter = DayOfYearPresenter()
 
         initElements()
+        initData()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
         initData()
     }
 
@@ -40,14 +56,44 @@ class MainActivity : AppCompatActivity() {
         currentDateTextView = findViewById(R.id.current_date)
         dayTextView = findViewById(R.id.day_of_year_text)
         dayProgressBar = findViewById(R.id.progressBar)
+
+        findViewById<ImageButton>(R.id.settings_button).setOnClickListener { startActivity(Intent(applicationContext, SettingsActivity::class.java)) }
     }
 
     private fun initData() {
         currentDateTextView.text = DateFormat.getDateInstance().format(Date(System.currentTimeMillis()))
 
+        val showTotalDays = sharedPreferences.getBoolean(getString(R.string.total_days_key), false)
+
         val dayOfYearData = dayOfYearPresenter.loadCurrentDayOfYear()
-        dayTextView.text = dayOfYearData.currentDay.toString()
+        val dayText = if (showTotalDays) {
+            dayOfYearData.currentDay.toString() + getString(R.string.days_delimiter) + dayOfYearData.lastDayOfYear.toString()
+        } else {
+            dayOfYearData.currentDay.toString()
+        }
+        dayTextView.text = dayText
         dayProgressBar.progress = dayOfYearData.currentDay
         dayProgressBar.max = dayOfYearData.lastDayOfYear
+    }
+
+    private fun createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = "channel_name"
+            val descriptionText = "Channel_description"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(getString(R.string.notification_channel_id), name, importance).apply {
+                description = descriptionText
+            }
+            channel.setSound(null, null)
+            channel.enableLights(false)
+            channel.enableVibration(false)
+            channel.setShowBadge(false)
+            // Register the channel with the system
+            val notificationManager: NotificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
     }
 }

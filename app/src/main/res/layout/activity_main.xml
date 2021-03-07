@@ -7,6 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
 
+    <ImageButton
+        android:id="@+id/settings_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/settings"
+        android:background="@null"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/settings_description" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
