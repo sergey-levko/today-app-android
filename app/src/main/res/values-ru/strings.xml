@@ -2,6 +2,7 @@
 <resources>
     <string name="today_is_text">Сегодня</string>
     <string name="day_of_year_text">День года</string>
+    <string name="day_copied_toast_message">День года скопирован</string>
 
     <string name="settings_description">Настройки</string>
 
