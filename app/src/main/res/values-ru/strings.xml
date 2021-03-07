@@ -2,4 +2,17 @@
 <resources>
     <string name="today_is_text">Сегодня</string>
     <string name="day_of_year_text">День года</string>
+
+    <string name="settings_description">Настройки</string>
+
+    <string name="settings_title">Настройки</string>
+    <string name="app_preference_category_title">Приложение</string>
+    <string name="about_preference_category_title">О приложении</string>
+    <string name="settings_preference_about_text">Приложение. Application developed by Sergey Levko. Minsk, Republic of Belarus.</string>
+    <string name="settings_preference_version_title">Версия</string>
+    <string name="settings_preference_terms_title">Условия использования</string>
+    <string name="settings_preference_terms_url">https://www.gnu.org/licenses/gpl-3.0.ru.html</string>
+
+    <string name="today_is_notification_text">Сегодня </string>
+    <string name="day_of_year_notification_text"> день года</string>
 </resources>
