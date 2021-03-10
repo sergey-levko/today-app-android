@@ -2,7 +2,6 @@
     <string name="app_name" translatable="false">Today</string>
 
     <string name="today_is_text">Today is</string>
-    <string name="day_of_year_text">Day of the year</string>
     <string name="clipboard_day_of_year_label" translatable="false">current_day_of_the_year</string>
     <string name="day_copied_toast_message">Day of the year was copied</string>
 
@@ -21,9 +20,13 @@
     <string name="today_is_notification_text">Today is</string>
     <string name="day_of_year_notification_text">day of the year</string>
 
+    <string name="appwidget_background_content_description" translatable="false">background</string>
+
     <string name="shared_preferences_name" translatable="false">app_shared_preferences</string>
     <string name="total_days_key" translatable="false">total_days_switcher</string>
     <string name="status_bar_key" translatable="false">status_bar_switcher</string>
     <string name="notification_channel_id" translatable="false">4fcec4ec-a165-4b12-ba4e-de495165d140</string>
     <string name="notification_id_key" translatable="false">notification_id_key</string>
+    <string name="notification_status_key" translatable="false">is_notification_shown</string>
+    <string name="widget_status_key" translatable="false">is_widget_shown</string>
 </resources>

@@ -2,22 +2,17 @@ package by.liauko.siarhei.app.today.activity.fragment
 
 import android.app.AlarmManager
 import android.app.PendingIntent
-import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.ContextCompat
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
 import by.liauko.siarhei.app.today.R
-import by.liauko.siarhei.app.today.service.DayOfYearForegroundService
+import by.liauko.siarhei.app.today.service.ApplicationToolsStatusService
 import by.liauko.siarhei.app.today.service.DayOfYearUpdateReceiver
-import by.liauko.siarhei.app.today.service.DeviceBootReceiver
-import by.liauko.siarhei.app.today.util.AlarmUtil
 
 class SettingsFragment : PreferenceFragmentCompat() {
 
@@ -49,26 +44,8 @@ class SettingsFragment : PreferenceFragmentCompat() {
     private val preferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
         when (preference.key) {
             totalDayOfYearKey -> sharedPreferences.edit().putBoolean(totalDayOfYearKey, newValue as Boolean).apply()
-            statusBarSwitchKey -> {
-                updateDeviceBootReceiverState(newValue as Boolean)
-                if (newValue) {
-                    ContextCompat.startForegroundService(requireContext(), Intent(requireContext(), DayOfYearForegroundService::class.java))
-                    AlarmUtil.setAlarm(alarmManager, alarmIntent)
-                } else {
-                    requireContext().stopService(Intent(requireContext(), DayOfYearForegroundService::class.java))
-                    alarmManager.cancel(alarmIntent)
-                }
-            }
+            statusBarSwitchKey -> ApplicationToolsStatusService(requireContext()).updateNotificationStatus(newValue as Boolean)
         }
         true
-    }
-
-    private fun updateDeviceBootReceiverState(enable: Boolean) {
-        requireContext().packageManager.setComponentEnabledSetting(
-                ComponentName(requireContext(), DeviceBootReceiver::class.java),
-                if (enable) PackageManager.COMPONENT_ENABLED_STATE_ENABLED
-                else PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-                PackageManager.DONT_KILL_APP
-        )
     }
 }
