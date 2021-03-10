@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:src="@drawable/settings"
         android:background="@null"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="@dimen/settings_margin_bottom"
+        android:layout_marginEnd="@dimen/settings_margin_bottom"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:contentDescription="@string/settings_description" />
@@ -37,13 +37,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:layout_marginTop="16dp"
-            android:text="@string/day_of_year_text" />
 
     </LinearLayout>
 

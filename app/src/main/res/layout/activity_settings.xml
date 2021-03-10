@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:title="@string/settings_title"
-        android:elevation="4dp"
+        android:elevation="@dimen/toolbar_elevation"
         android:background="@color/toolbarPrimary"
         android:theme="@style/ThemeOverlay.MaterialComponents.ActionBar" />
 

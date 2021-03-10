@@ -13,8 +13,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppDefault">
-        <service android:name=".service.DayOfYearForegroundService"
+
+        <receiver android:name=".widget.DayOfYearAppWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/day_of_year_app_widget_info" />
+        </receiver>
+        <receiver android:name=".service.DayOfYearUpdateReceiver" />
+        <receiver
+            android:name=".service.DeviceBootReceiver"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".service.DayOfYearForegroundService"
             android:enabled="true" />
+
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,12 +44,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.SettingsActivity" />
-        <receiver android:name=".service.DayOfYearUpdateReceiver" />
-        <receiver android:name=".service.DeviceBootReceiver" android:enabled="false">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
+
     </application>
 
 </manifest>
