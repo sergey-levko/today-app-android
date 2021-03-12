@@ -13,15 +13,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppDefault">
-
-        <receiver android:name=".widget.DayOfYearAppWidget">
+        <receiver android:name=".widget.DayOfYearWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/day_of_year_app_widget_info" />
+                android:resource="@xml/widget_info_day_of_year_1_1" />
+        </receiver>
+        <receiver android:name=".widget.DayOfYearBigWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info_day_of_year_2_2" />
         </receiver>
         <receiver android:name=".service.DayOfYearUpdateReceiver" />
         <receiver
@@ -44,7 +52,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.SettingsActivity" />
-
+        <activity android:name=".activity.DayOfYearWidgetConfigureActivity">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -16,9 +16,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import by.liauko.siarhei.app.today.R
-import by.liauko.siarhei.app.today.presenter.DayOfYearPresenter
 import java.text.DateFormat
+import java.util.Calendar
 import java.util.Date
+import java.util.GregorianCalendar
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,7 +28,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var dayProgressBar: ProgressBar
 
     private lateinit var sharedPreferences: SharedPreferences
-    private lateinit var dayOfYearPresenter: DayOfYearPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +43,6 @@ class MainActivity : AppCompatActivity() {
         createNotificationChannel()
 
         sharedPreferences = applicationContext.getSharedPreferences(getString(R.string.shared_preferences_name), Context.MODE_PRIVATE)
-        dayOfYearPresenter = DayOfYearPresenter()
 
         initElements()
         initData()
@@ -68,24 +67,25 @@ class MainActivity : AppCompatActivity() {
 
         val showTotalDays = sharedPreferences.getBoolean(getString(R.string.total_days_key), false)
 
-        val dayOfYearModel = dayOfYearPresenter.loadCurrentDayOfYear()
+        val currentDay = GregorianCalendar.getInstance().get(Calendar.DAY_OF_YEAR)
+        val lastDayOfYear = GregorianCalendar.getInstance().getActualMaximum(Calendar.DAY_OF_YEAR)
         val dayText = if (showTotalDays) {
-            dayOfYearModel.currentDay.toString() + getString(R.string.days_delimiter) + dayOfYearModel.lastDayOfYear.toString()
+            currentDay.toString() + getString(R.string.days_delimiter) + lastDayOfYear.toString()
         } else {
-            dayOfYearModel.currentDay.toString()
+            currentDay.toString()
         }
         dayTextView.text = dayText
         dayTextView.setOnClickListener {
             val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-            clipboard.setPrimaryClip(ClipData.newPlainText(getString(R.string.clipboard_day_of_year_label), dayOfYearModel.currentDay.toString()))
+            clipboard.setPrimaryClip(ClipData.newPlainText(getString(R.string.clipboard_day_of_year_label), currentDay.toString()))
             Toast.makeText(
                 applicationContext,
                 R.string.day_copied_toast_message,
                 Toast.LENGTH_SHORT
             ).show()
         }
-        dayProgressBar.progress = dayOfYearModel.currentDay
-        dayProgressBar.max = dayOfYearModel.lastDayOfYear
+        dayProgressBar.progress = currentDay
+        dayProgressBar.max = lastDayOfYear
     }
 
     private fun createNotificationChannel() {

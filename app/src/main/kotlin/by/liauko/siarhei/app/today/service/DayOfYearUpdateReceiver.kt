@@ -12,7 +12,8 @@ import by.liauko.siarhei.app.today.ApplicationConstants
 import by.liauko.siarhei.app.today.R
 import by.liauko.siarhei.app.today.util.AlarmUtil
 import by.liauko.siarhei.app.today.util.NotificationUtil
-import by.liauko.siarhei.app.today.widget.DayOfYearAppWidget
+import by.liauko.siarhei.app.today.widget.DayOfYearBigWidget
+import by.liauko.siarhei.app.today.widget.DayOfYearWidget
 
 class DayOfYearUpdateReceiver : BroadcastReceiver() {
 
@@ -29,7 +30,8 @@ class DayOfYearUpdateReceiver : BroadcastReceiver() {
 
         if (widgetStatus) {
             val widgetManager = AppWidgetManager.getInstance(context)
-            val ids = widgetManager.getAppWidgetIds(ComponentName(context, DayOfYearAppWidget::class.java))
+            var ids = widgetManager.getAppWidgetIds(ComponentName(context, DayOfYearWidget::class.java))
+            ids += widgetManager.getAppWidgetIds(ComponentName(context, DayOfYearBigWidget::class.java))
             val updateIntent = Intent(AppWidgetManager.ACTION_APPWIDGET_UPDATE)
             updateIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
             context.sendBroadcast(updateIntent)

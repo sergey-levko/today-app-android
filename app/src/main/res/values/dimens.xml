@@ -4,4 +4,6 @@
     <dimen name="toolbar_elevation">4dp</dimen>
     <dimen name="toolbar_margin_bottom">8dp</dimen>
     <dimen name="widget_margin_bottom">10dp</dimen>
+    <dimen name="color_item_margin">4dp</dimen>
+    <dimen name="widget_config_activity_horizontal_margin">8dp</dimen>
 </resources>

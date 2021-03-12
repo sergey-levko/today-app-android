@@ -10,20 +10,20 @@ import android.graphics.drawable.Icon
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import by.liauko.siarhei.app.today.R
-import by.liauko.siarhei.app.today.presenter.DayOfYearPresenter
+import java.util.Calendar
+import java.util.GregorianCalendar
 
 object NotificationUtil {
 
     fun createDayOfYearNotification(context: Context): Notification {
-        val dayOfYearPresenter = DayOfYearPresenter()
-        val dayOfYearModel = dayOfYearPresenter.loadCurrentDayOfYear()
-        val bitmap = createBitmapFromText(dayOfYearModel.currentDay.toString())
+        val currentDay = GregorianCalendar.getInstance().get(Calendar.DAY_OF_YEAR)
+        val bitmap = createBitmapFromText(currentDay.toString())
 
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     val builder = Notification.Builder(context, context.getString(R.string.notification_channel_id))
                             .setSmallIcon(Icon.createWithBitmap(bitmap))
                             .setContentTitle("""${context.getString(R.string.today_is_notification_text)} 
-                                |${dayOfYearModel.currentDay} 
+                                |${currentDay} 
                                 |${context.getString(R.string.day_of_year_notification_text)}""".trimMargin())
                     builder.build()
 
@@ -31,7 +31,7 @@ object NotificationUtil {
                     val builder = NotificationCompat.Builder(context, context.getString(R.string.notification_channel_id))
                             .setSmallIcon(R.drawable.ic_action_name)
                             .setContentTitle("""${context.getString(R.string.today_is_notification_text)} 
-                                |${dayOfYearModel.currentDay} 
+                                |${currentDay} 
                                 |${context.getString(R.string.day_of_year_notification_text)}""".trimMargin())
                             .setPriority(NotificationCompat.PRIORITY_HIGH)
                     builder.build()

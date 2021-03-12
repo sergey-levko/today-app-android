@@ -20,7 +20,23 @@
     <string name="today_is_notification_text">Today is</string>
     <string name="day_of_year_notification_text">day of the year</string>
 
-    <string name="appwidget_background_content_description" translatable="false">background</string>
+    <string name="ok" translatable="false">OK</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="widget_background_content_description" translatable="false">background</string>
+
+    <string name="widget_configuration_menu_confirm">Confirm</string>
+    <string name="widget_configuration_preview">Preview</string>
+    <string name="widget_configuration_preview_description" translatable="false">preview</string>
+    <string name="widget_configuration_default_theme_switch">Use default day/night theme</string>
+    <string name="widget_configuration_form_selector">Form selector</string>
+    <string name="widget_configuration_circle_form_description" translatable="false">circle</string>
+    <string name="widget_configuration_rectangle_form_description" translatable="false">rectangle</string>
+    <string name="widget_configuration_squircle_form_description" translatable="false">squircle</string>
+    <string name="widget_configuration_background_opacity">Background opacity</string>
+    <string name="widget_configuration_color_selector">Color selector</string>
+    <string name="widget_configuration_background_radio_button">Background</string>
+    <string name="widget_configuration_text_radio_button">Text</string>
 
     <string name="shared_preferences_name" translatable="false">app_shared_preferences</string>
     <string name="total_days_key" translatable="false">total_days_switcher</string>
@@ -29,4 +45,93 @@
     <string name="notification_id_key" translatable="false">notification_id_key</string>
     <string name="notification_status_key" translatable="false">is_notification_shown</string>
     <string name="widget_status_key" translatable="false">is_widget_shown</string>
+
+    <!-- Colors content descriptions -->
+    <string name="color_0" translatable="false">#000</string>
+    <string name="color_1" translatable="false">#434343</string>
+    <string name="color_2" translatable="false">#666</string>
+    <string name="color_3" translatable="false">#999</string>
+    <string name="color_4" translatable="false">#b7b7b7</string>
+    <string name="color_5" translatable="false">#ccc</string>
+    <string name="color_6" translatable="false">#d9d9d9</string>
+    <string name="color_7" translatable="false">#efefef</string>
+    <string name="color_8" translatable="false">#f3f3f3</string>
+    <string name="color_9" translatable="false">#fff</string>
+
+    <string name="color_10" translatable="false">#980000</string>
+    <string name="color_11" translatable="false">#ff0000</string>
+    <string name="color_12" translatable="false">#ff9900</string>
+    <string name="color_13" translatable="false">#ffff00</string>
+    <string name="color_14" translatable="false">#00ff00</string>
+    <string name="color_15" translatable="false">#00ffff</string>
+    <string name="color_16" translatable="false">#4a86e8</string>
+    <string name="color_17" translatable="false">#0000ff</string>
+    <string name="color_18" translatable="false">#9900ff</string>
+    <string name="color_19" translatable="false">#ff00ff</string>
+
+    <string name="color_20" translatable="false">#e6b8af</string>
+    <string name="color_21" translatable="false">#f4cccc</string>
+    <string name="color_22" translatable="false">#fce5cd</string>
+    <string name="color_23" translatable="false">#fff2cc</string>
+    <string name="color_24" translatable="false">#d9ead3</string>
+    <string name="color_25" translatable="false">#d0e0e3</string>
+    <string name="color_26" translatable="false">#c9daf8</string>
+    <string name="color_27" translatable="false">#cfe2f3</string>
+    <string name="color_28" translatable="false">#d9d2e9</string>
+    <string name="color_29" translatable="false">#ead1dc</string>
+
+    <string name="color_30" translatable="false">#dd7e6b</string>
+    <string name="color_31" translatable="false">#ea9999</string>
+    <string name="color_32" translatable="false">#f9cb9c</string>
+    <string name="color_33" translatable="false">#ffe599</string>
+    <string name="color_34" translatable="false">#b6d7a8</string>
+    <string name="color_35" translatable="false">#a2c4c9</string>
+    <string name="color_36" translatable="false">#a4c2f4</string>
+    <string name="color_37" translatable="false">#9fc5e8</string>
+    <string name="color_38" translatable="false">#b4a7d6</string>
+    <string name="color_39" translatable="false">#d5a6bd</string>
+
+    <string name="color_40" translatable="false">#cc4125</string>
+    <string name="color_41" translatable="false">#e06666</string>
+    <string name="color_42" translatable="false">#f6b26b</string>
+    <string name="color_43" translatable="false">#ffd966</string>
+    <string name="color_44" translatable="false">#93c47d</string>
+    <string name="color_45" translatable="false">#76a5af</string>
+    <string name="color_46" translatable="false">#6d9eeb</string>
+    <string name="color_47" translatable="false">#6fa8dc</string>
+    <string name="color_48" translatable="false">#8e7cc3</string>
+    <string name="color_49" translatable="false">#c27ba0</string>
+
+    <string name="color_50" translatable="false">#a61c00</string>
+    <string name="color_51" translatable="false">#cc0000</string>
+    <string name="color_52" translatable="false">#e69138</string>
+    <string name="color_53" translatable="false">#f1c232</string>
+    <string name="color_54" translatable="false">#6aa84f</string>
+    <string name="color_55" translatable="false">#45818e</string>
+    <string name="color_56" translatable="false">#45818e</string>
+    <string name="color_57" translatable="false">#3d85c6</string>
+    <string name="color_58" translatable="false">#674ea7</string>
+    <string name="color_59" translatable="false">#a64d79</string>
+
+    <string name="color_60" translatable="false">#85200c</string>
+    <string name="color_61" translatable="false">#990000</string>
+    <string name="color_62" translatable="false">#b45f06</string>
+    <string name="color_63" translatable="false">#bf9000</string>
+    <string name="color_64" translatable="false">#38761d</string>
+    <string name="color_65" translatable="false">#134f5c</string>
+    <string name="color_66" translatable="false">#1155cc</string>
+    <string name="color_67" translatable="false">#0b5394</string>
+    <string name="color_68" translatable="false">#351c75</string>
+    <string name="color_69" translatable="false">#741b47</string>
+
+    <string name="color_70" translatable="false">#5b0f00</string>
+    <string name="color_71" translatable="false">#660000</string>
+    <string name="color_72" translatable="false">#783f04</string>
+    <string name="color_73" translatable="false">#7f6000</string>
+    <string name="color_74" translatable="false">#274e13</string>
+    <string name="color_75" translatable="false">#0c343d</string>
+    <string name="color_76" translatable="false">#1c4587</string>
+    <string name="color_77" translatable="false">#073763</string>
+    <string name="color_78" translatable="false">#20124d</string>
+    <string name="color_79" translatable="false">#4c1130</string>
 </resources>

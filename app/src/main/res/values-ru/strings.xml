@@ -15,4 +15,15 @@
 
     <string name="today_is_notification_text">Сегодня </string>
     <string name="day_of_year_notification_text"> день года</string>
+
+    <string name="cancel">Отмена</string>
+
+    <string name="widget_configuration_menu_confirm">Подтвердить</string>
+    <string name="widget_configuration_preview">Предпросмотр</string>
+    <string name="widget_configuration_default_theme_switch">Использовать стандартную тему</string>
+    <string name="widget_configuration_form_selector">Выбор формы</string>
+    <string name="widget_configuration_background_opacity">Прозрачность фона</string>
+    <string name="widget_configuration_color_selector">Выбор цвета</string>
+    <string name="widget_configuration_background_radio_button">Фон</string>
+    <string name="widget_configuration_text_radio_button">Текст</string>
 </resources>
