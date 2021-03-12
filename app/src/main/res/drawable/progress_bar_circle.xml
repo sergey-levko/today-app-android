@@ -6,7 +6,6 @@
             android:innerRadiusRatio="4"
             android:thicknessRatio="16"
             android:useLevel="false">
-
             <stroke
                 android:width="4dp"
                 android:color="@color/primary" />
@@ -22,9 +21,7 @@
                 android:innerRadiusRatio="4"
                 android:thicknessRatio="18"
                 android:useLevel="true" >
-
                 <solid android:color="@color/primary" />
-
             </shape>
         </rotate>
     </item>

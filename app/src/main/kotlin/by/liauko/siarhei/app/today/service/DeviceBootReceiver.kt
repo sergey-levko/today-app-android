@@ -9,6 +9,12 @@ import androidx.core.content.ContextCompat
 import by.liauko.siarhei.app.today.R
 import by.liauko.siarhei.app.today.util.AlarmUtil
 
+/**
+ * Class handling case when device was rebooted
+ *
+ * @author Siarhei Liauko
+ * @since 1.0.0
+ */
 class DeviceBootReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
@@ -28,7 +34,7 @@ class DeviceBootReceiver : BroadcastReceiver() {
             val alarmIntent = Intent(context, DayOfYearUpdateReceiver::class.java).let {
                 PendingIntent.getBroadcast(context, 0, it, 0)
             }
-            AlarmUtil.setAlarm(alarmManager, alarmIntent)
+            AlarmUtil.setMidnightAlarm(alarmManager, alarmIntent)
         }
     }
 }

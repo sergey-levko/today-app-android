@@ -15,6 +15,12 @@ import by.liauko.siarhei.app.today.util.NotificationUtil
 import by.liauko.siarhei.app.today.widget.DayOfYearBigWidget
 import by.liauko.siarhei.app.today.widget.DayOfYearWidget
 
+/**
+ * Class handling updating current day of the year for app notification and widgets
+ *
+ * @author Siarhei Liauko
+ * @since 1.0.0
+ */
 class DayOfYearUpdateReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
@@ -41,6 +47,6 @@ class DayOfYearUpdateReceiver : BroadcastReceiver() {
         val alarmIntent = Intent(context, DayOfYearUpdateReceiver::class.java).let {
             PendingIntent.getBroadcast(context, 0, it, 0)
         }
-        AlarmUtil.setAlarm(alarmManager, alarmIntent)
+        AlarmUtil.setMidnightAlarm(alarmManager, alarmIntent)
     }
 }

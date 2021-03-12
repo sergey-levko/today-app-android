@@ -13,8 +13,22 @@ import by.liauko.siarhei.app.today.R
 import java.util.Calendar
 import java.util.GregorianCalendar
 
+/**
+ * Utility class containing methods managing application notification
+ *
+ * @author Siarhei Liauko
+ * @since 1.0.0
+ */
 object NotificationUtil {
 
+    /**
+     * Creates notification which shows current day of the year
+     *
+     * @param context application context
+     *
+     * @author Siarhei Liauko
+     * @since 1.0.0
+     */
     fun createDayOfYearNotification(context: Context): Notification {
         val currentDay = GregorianCalendar.getInstance().get(Calendar.DAY_OF_YEAR)
         val bitmap = createBitmapFromText(currentDay.toString())

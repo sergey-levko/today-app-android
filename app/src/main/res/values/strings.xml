@@ -39,6 +39,7 @@
     <string name="widget_configuration_text_radio_button">Text</string>
 
     <string name="shared_preferences_name" translatable="false">app_shared_preferences</string>
+    <string name="widget_shared_preferences_name" translatable="false">widget_shared_preferences</string>
     <string name="total_days_key" translatable="false">total_days_switcher</string>
     <string name="status_bar_key" translatable="false">status_bar_switcher</string>
     <string name="notification_channel_id" translatable="false">4fcec4ec-a165-4b12-ba4e-de495165d140</string>

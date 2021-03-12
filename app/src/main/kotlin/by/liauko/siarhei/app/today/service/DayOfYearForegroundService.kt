@@ -6,6 +6,12 @@ import android.os.IBinder
 import by.liauko.siarhei.app.today.ApplicationConstants
 import by.liauko.siarhei.app.today.util.NotificationUtil
 
+/**
+ * Foreground service showing notification with current day of the year
+ *
+ * @author Siarhei Liauko
+ * @since 1.0.0
+ */
 class DayOfYearForegroundService : Service() {
     
     override fun onBind(intent: Intent?): IBinder? {

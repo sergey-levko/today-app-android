@@ -21,6 +21,12 @@ import java.util.Calendar
 import java.util.Date
 import java.util.GregorianCalendar
 
+/**
+ * Class managing items of main application screen
+ *
+ * @author Siarhei Liauko
+ * @since 1.0.0
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var currentDateTextView: TextView

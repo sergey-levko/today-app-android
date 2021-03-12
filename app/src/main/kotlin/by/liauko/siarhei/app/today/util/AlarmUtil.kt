@@ -4,9 +4,24 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import java.util.Calendar
 
+/**
+ * Utility class containing methods managing application alarms
+ *
+ * @author Siarhei Liauko
+ * @since 1.0.0
+ */
 object AlarmUtil {
 
-    fun setAlarm(alarmManager: AlarmManager, alarmIntent: PendingIntent) {
+    /**
+     * Setting up alarm which will execute at midnight
+     *
+     * @param alarmManager [AlarmManager] instance to configure alarm
+     * @param alarmIntent action to perform when the alarm goes off
+     *
+     * @author Siarhei Liauko
+     * @since 1.0.0
+     */
+    fun setMidnightAlarm(alarmManager: AlarmManager, alarmIntent: PendingIntent) {
         val calendar = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
             add(Calendar.DAY_OF_YEAR, 1)

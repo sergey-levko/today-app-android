@@ -2,6 +2,7 @@ package by.liauko.siarhei.app.today.activity
 
 import android.app.Activity
 import android.appwidget.AppWidgetManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -14,9 +15,9 @@ import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.get
 import androidx.core.view.size
+import by.liauko.siarhei.app.today.ApplicationConstants
 import by.liauko.siarhei.app.today.R
-import by.liauko.siarhei.app.today.model.WidgetParameters
-import by.liauko.siarhei.app.today.widget.createAppWidget
+import by.liauko.siarhei.app.today.widget.updateAppWidget
 import com.google.android.material.switchmaterial.SwitchMaterial
 import java.util.Calendar
 import java.util.GregorianCalendar
@@ -28,8 +29,6 @@ import java.util.GregorianCalendar
  * @since 1.0.0
  */
 class DayOfYearWidgetConfigureActivity : Activity() {
-
-    private val opacityMaxValue = 255
 
     private lateinit var preview: ImageView
     private lateinit var previewText: TextView
@@ -92,7 +91,7 @@ class DayOfYearWidgetConfigureActivity : Activity() {
         widgetParameters = WidgetParameters(
             R.drawable.widget_background_circle,
             getColor(R.color.widgetBackground),
-            opacityMaxValue,
+            ApplicationConstants.OPACITY_MAX_VALUE,
             getColor(R.color.primary)
         )
 
@@ -106,8 +105,16 @@ class DayOfYearWidgetConfigureActivity : Activity() {
         toolbar.setNavigationOnClickListener { finish() }
         toolbar.inflateMenu(R.menu.menu_widget_configuration)
         toolbar.setOnMenuItemClickListener {
+            val sharedPreferences = getSharedPreferences(getString(R.string.widget_shared_preferences_name), Context.MODE_PRIVATE)
+            sharedPreferences.edit()
+                .putInt("${appWidgetId}_form", widgetParameters.form)
+                .putInt("${appWidgetId}_background_color", widgetParameters.backgroundColor)
+                .putInt("${appWidgetId}_opacity", widgetParameters.opacity)
+                .putInt("${appWidgetId}_text_color", widgetParameters.textColor)
+                .apply()
+
             val appWidgetManager = AppWidgetManager.getInstance(this)
-            createAppWidget(this, appWidgetManager, appWidgetId, widgetParameters)
+            updateAppWidget(this, appWidgetManager, appWidgetId)
             
             val resultValue = Intent()
             resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
@@ -170,8 +177,8 @@ class DayOfYearWidgetConfigureActivity : Activity() {
 
         findViewById<SeekBar>(R.id.opacity_seek_bar).setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                preview.imageAlpha = opacityMaxValue - progress
-                widgetParameters.opacity = opacityMaxValue - progress
+                preview.imageAlpha = ApplicationConstants.OPACITY_MAX_VALUE - progress
+                widgetParameters.opacity = ApplicationConstants.OPACITY_MAX_VALUE - progress
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar) {}
@@ -180,3 +187,16 @@ class DayOfYearWidgetConfigureActivity : Activity() {
         })
     }
 }
+
+/**
+ * Model for storing widget configuration parameters
+ *
+ * @author Siarhei Liauko
+ * @since 1.0.0
+ */
+data class WidgetParameters(
+    var form: Int,
+    var backgroundColor: Int,
+    var opacity: Int,
+    var textColor: Int
+)
