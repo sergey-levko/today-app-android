@@ -14,6 +14,12 @@ import by.liauko.siarhei.app.today.R
 import by.liauko.siarhei.app.today.service.ApplicationToolsStatusService
 import by.liauko.siarhei.app.today.service.DayOfYearUpdateReceiver
 
+/**
+ * Class managing application settings items
+ *
+ * @author Siarhei Liauko
+ * @since 1.0.0
+ */
 class SettingsFragment : PreferenceFragmentCompat() {
 
     private lateinit var sharedPreferences: SharedPreferences

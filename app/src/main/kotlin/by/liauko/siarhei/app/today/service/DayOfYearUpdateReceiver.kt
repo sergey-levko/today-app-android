@@ -12,8 +12,15 @@ import by.liauko.siarhei.app.today.ApplicationConstants
 import by.liauko.siarhei.app.today.R
 import by.liauko.siarhei.app.today.util.AlarmUtil
 import by.liauko.siarhei.app.today.util.NotificationUtil
-import by.liauko.siarhei.app.today.widget.DayOfYearAppWidget
+import by.liauko.siarhei.app.today.widget.DayOfYearBigWidget
+import by.liauko.siarhei.app.today.widget.DayOfYearWidget
 
+/**
+ * Class handling updating current day of the year for app notification and widgets
+ *
+ * @author Siarhei Liauko
+ * @since 1.0.0
+ */
 class DayOfYearUpdateReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
@@ -29,7 +36,8 @@ class DayOfYearUpdateReceiver : BroadcastReceiver() {
 
         if (widgetStatus) {
             val widgetManager = AppWidgetManager.getInstance(context)
-            val ids = widgetManager.getAppWidgetIds(ComponentName(context, DayOfYearAppWidget::class.java))
+            var ids = widgetManager.getAppWidgetIds(ComponentName(context, DayOfYearWidget::class.java))
+            ids += widgetManager.getAppWidgetIds(ComponentName(context, DayOfYearBigWidget::class.java))
             val updateIntent = Intent(AppWidgetManager.ACTION_APPWIDGET_UPDATE)
             updateIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
             context.sendBroadcast(updateIntent)
@@ -39,6 +47,6 @@ class DayOfYearUpdateReceiver : BroadcastReceiver() {
         val alarmIntent = Intent(context, DayOfYearUpdateReceiver::class.java).let {
             PendingIntent.getBroadcast(context, 0, it, 0)
         }
-        AlarmUtil.setAlarm(alarmManager, alarmIntent)
+        AlarmUtil.setMidnightAlarm(alarmManager, alarmIntent)
     }
 }

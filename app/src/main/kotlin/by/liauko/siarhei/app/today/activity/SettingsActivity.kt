@@ -6,6 +6,12 @@ import androidx.appcompat.widget.Toolbar
 import by.liauko.siarhei.app.today.R
 import by.liauko.siarhei.app.today.activity.fragment.SettingsFragment
 
+/**
+ * Class managing settings screen
+ *
+ * @author Siarhei Liauko
+ * @since 1.0.0
+ */
 class SettingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
