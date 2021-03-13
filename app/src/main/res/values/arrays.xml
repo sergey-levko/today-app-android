@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="colors_picker_values">
+        <item>#000</item>
+        <item>#434343</item>
+        <item>#666</item>
+        <item>#999</item>
+        <item>#b7b7b7</item>
+        <item>#ccc</item>
+        <item>#d9d9d9</item>
+        <item>#efefef</item>
+        <item>#f3f3f3</item>
+        <item>#fff</item>
+
+        <item>#980000</item>
+        <item>#ff0000</item>
+        <item>#ff9900</item>
+        <item>#ffff00</item>
+        <item>#00ff00</item>
+        <item>#00ffff</item>
+        <item>#4a86e8</item>
+        <item>#0000ff</item>
+        <item>#9900ff</item>
+        <item>#ff00ff</item>
+
+        <item>#e6b8af</item>
+        <item>#f4cccc</item>
+        <item>#fce5cd</item>
+        <item>#fff2cc</item>
+        <item>#d9ead3</item>
+        <item>#d0e0e3</item>
+        <item>#c9daf8</item>
+        <item>#cfe2f3</item>
+        <item>#d9d2e9</item>
+        <item>#ead1dc</item>
+
+        <item>#dd7e6b</item>
+        <item>#ea9999</item>
+        <item>#f9cb9c</item>
+        <item>#ffe599</item>
+        <item>#b6d7a8</item>
+        <item>#a2c4c9</item>
+        <item>#a4c2f4</item>
+        <item>#9fc5e8</item>
+        <item>#b4a7d6</item>
+        <item>#d5a6bd</item>
+
+        <item>#cc4125</item>
+        <item>#e06666</item>
+        <item>#f6b26b</item>
+        <item>#ffd966</item>
+        <item>#93c47d</item>
+        <item>#76a5af</item>
+        <item>#6d9eeb</item>
+        <item>#6fa8dc</item>
+        <item>#8e7cc3</item>
+        <item>#c27ba0</item>
+
+        <item>#a61c00</item>
+        <item>#cc0000</item>
+        <item>#e69138</item>
+        <item>#f1c232</item>
+        <item>#6aa84f</item>
+        <item>#45818e</item>
+        <item>#45818e</item>
+        <item>#3d85c6</item>
+        <item>#674ea7</item>
+        <item>#a64d79</item>
+
+        <item>#85200c</item>
+        <item>#990000</item>
+        <item>#b45f06</item>
+        <item>#bf9000</item>
+        <item>#38761d</item>
+        <item>#134f5c</item>
+        <item>#1155cc</item>
+        <item>#0b5394</item>
+        <item>#351c75</item>
+        <item>#741b47</item>
+
+        <item>#5b0f00</item>
+        <item>#660000</item>
+        <item>#783f04</item>
+        <item>#7f6000</item>
+        <item>#274e13</item>
+        <item>#0c343d</item>
+        <item>#1c4587</item>
+        <item>#073763</item>
+        <item>#20124d</item>
+        <item>#4c1130</item>
+    </array>
+</resources>
