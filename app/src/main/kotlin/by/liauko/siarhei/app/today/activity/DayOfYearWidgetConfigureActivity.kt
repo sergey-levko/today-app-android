@@ -38,6 +38,7 @@ class DayOfYearWidgetConfigureActivity : Activity() {
     private lateinit var widgetParameters: WidgetParameters
 
     private var appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID
+    private var isDefaultTheme = true
 
     private var onClickListener = View.OnClickListener {
         when (it.id) {
@@ -107,11 +108,16 @@ class DayOfYearWidgetConfigureActivity : Activity() {
         toolbar.setOnMenuItemClickListener {
             val sharedPreferences = getSharedPreferences(getString(R.string.widget_shared_preferences_name), Context.MODE_PRIVATE)
             sharedPreferences.edit()
-                .putInt("${appWidgetId}_form", widgetParameters.form)
-                .putInt("${appWidgetId}_background_color", widgetParameters.backgroundColor)
-                .putInt("${appWidgetId}_opacity", widgetParameters.opacity)
-                .putInt("${appWidgetId}_text_color", widgetParameters.textColor)
+                .putBoolean("${appWidgetId}_is_default", isDefaultTheme)
                 .apply()
+            if (!isDefaultTheme) {
+                sharedPreferences.edit()
+                    .putInt("${appWidgetId}_form", widgetParameters.form)
+                    .putInt("${appWidgetId}_background_color", widgetParameters.backgroundColor)
+                    .putInt("${appWidgetId}_opacity", widgetParameters.opacity)
+                    .putInt("${appWidgetId}_text_color", widgetParameters.textColor)
+                    .apply()
+            }
 
             val appWidgetManager = AppWidgetManager.getInstance(this)
             updateAppWidget(this, appWidgetManager, appWidgetId)
@@ -145,6 +151,8 @@ class DayOfYearWidgetConfigureActivity : Activity() {
                 rectangleForm.setColorFilter(getColor(R.color.onBackground))
                 squircleForm.setColorFilter(getColor(R.color.onBackground))
             }
+
+            isDefaultTheme = isChecked
         }
 
         val grid = findViewById<GridLayout>(R.id.colors_grid)

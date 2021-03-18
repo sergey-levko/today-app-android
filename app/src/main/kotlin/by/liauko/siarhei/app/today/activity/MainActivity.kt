@@ -52,6 +52,10 @@ class MainActivity : AppCompatActivity() {
 
         initElements()
         initData()
+
+        if (savedInstanceState == null) {
+            startActivity(Intent(applicationContext, LaunchScreenActivity::class.java))
+        }
     }
 
     override fun onResume() {

@@ -94,29 +94,42 @@ internal fun updateAppWidget(
         Context.MODE_PRIVATE
     )
 
+    val isDefaultTheme = sharedPreferences.getBoolean("${appWidgetId}_is_default", true)
+
     // Construct the RemoteViews object
     val views = RemoteViews(context.packageName, R.layout.widget_day_of_year)
     views.setImageViewResource(
         R.id.widget_background,
         sharedPreferences.getInt("${appWidgetId}_form", R.drawable.widget_background_circle)
     )
-    views.setInt(
-        R.id.widget_background,
-        "setColorFilter", sharedPreferences.getInt("${appWidgetId}_background_color", context.getColor(R.color.widgetBackground))
-    )
-    views.setInt(
-        R.id.widget_background,
-        "setImageAlpha", sharedPreferences.getInt("${appWidgetId}_opacity", ApplicationConstants.OPACITY_MAX_VALUE)
-    )
+    views.setTextViewTextSize(R.id.widget_text, TypedValue.COMPLEX_UNIT_SP, textSize)
     views.setTextViewText(
         R.id.widget_text,
         GregorianCalendar.getInstance().get(Calendar.DAY_OF_YEAR).toString()
     )
-    views.setTextColor(
-        R.id.widget_text,
-        sharedPreferences.getInt("${appWidgetId}_text_color", context.getColor(R.color.primary))
-    )
-    views.setTextViewTextSize(R.id.widget_text, TypedValue.COMPLEX_UNIT_SP, textSize)
+
+    if (!isDefaultTheme) {
+        views.setInt(
+            R.id.widget_background,
+            "setColorFilter",
+            sharedPreferences.getInt(
+                "${appWidgetId}_background_color",
+                context.getColor(R.color.widgetBackground)
+            )
+        )
+        views.setInt(
+            R.id.widget_background,
+            "setImageAlpha",
+            sharedPreferences.getInt(
+                "${appWidgetId}_opacity",
+                ApplicationConstants.OPACITY_MAX_VALUE
+            )
+        )
+        views.setTextColor(
+            R.id.widget_text,
+            sharedPreferences.getInt("${appWidgetId}_text_color", context.getColor(R.color.primary))
+        )
+    }
 
     val intent = Intent(context, DayOfYearWidget::class.java)
     intent.action = COPY_ACTION
