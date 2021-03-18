@@ -16,4 +16,8 @@
     <color name="toolbarPrimary">#fafafa</color>
 
     <color name="widgetBackground">#fafafa</color>
+
+    <color name="launchScreenBackground">#ab000d</color>
+    <color name="launchScreenAppLogo">#fafafa</color>
+    <color name="launchScreenCompanyLogo">#ff5131</color>
 </resources>
