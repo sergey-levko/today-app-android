@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name" translatable="false">Today</string>
 
+    <string name="launch_screen_app_logo_content" translatable="false">app_logo</string>
+    <string name="launch_screen_company_logo_content" translatable="false">company_logo</string>
+
     <string name="today_is_text">Today is</string>
     <string name="clipboard_day_of_year_label" translatable="false">current_day_of_the_year</string>
     <string name="day_copied_toast_message">Day of the year was copied</string>
