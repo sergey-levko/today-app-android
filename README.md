@@ -1,10 +1,13 @@
 <p align="center">
   <img src="https://github.com/sergey-levv/today-app-android/blob/master/github-resources/ic_launcher.png" alt="app_icon" />
   <h1 align="center">TODAY APP</h1>
-  <span align="center">Android application which shows current day of the year.</span>
 </p>
 
-### Last release
+<p align="center">
+  <a href="https://play.google.com/store/apps/details?id=by.liauko.siarhei.app.today">
+    <img src="https://github.com/sergey-levv/today-app-android/blob/master/github-resources/get-it-on-google-play-badge.svg" alt="google_play" />
+  </a>
+</p>
 
 ## About
 The application shows current day of the year on the main screen. User can also enable displaying current day of the year in status bar. Tapping on the text with current day of the year on main screen will copy this value to clipboard.
