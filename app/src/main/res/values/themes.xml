@@ -18,4 +18,8 @@
         <item name="colorOnError">@color/onError</item>
         <item name="android:windowLightStatusBar">@bool/isLightStatusBar</item>
     </style>
+
+    <style name="LaunchScreen" parent="AppDefault">
+        <item name="colorPrimaryDark">@color/launchScreenBackground</item>
+    </style>
 </resources>
