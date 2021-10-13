@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
     <application
         android:allowBackup="false"
@@ -13,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppDefault">
-        <receiver android:name=".widget.DayOfYearWidget">
+        <receiver
+            android:name=".widget.DayOfYearWidget"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -22,7 +25,9 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_info_day_of_year_1_1" />
         </receiver>
-        <receiver android:name=".widget.DayOfYearBigWidget">
+        <receiver
+            android:name=".widget.DayOfYearBigWidget"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -34,7 +39,8 @@
         <receiver android:name=".service.DayOfYearUpdateReceiver" />
         <receiver
             android:name=".service.DeviceBootReceiver"
-            android:enabled="false">
+            android:enabled="false"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -44,7 +50,9 @@
             android:name=".service.DayOfYearForegroundService"
             android:enabled="true" />
 
-        <activity android:name=".activity.MainActivity">
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,7 +60,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.SettingsActivity" />
-        <activity android:name=".activity.DayOfYearWidgetConfigureActivity">
+        <activity
+            android:name=".activity.DayOfYearWidgetConfigureActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>

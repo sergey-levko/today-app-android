@@ -32,7 +32,7 @@ class DeviceBootReceiver : BroadcastReceiver() {
             }
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             val alarmIntent = Intent(context, DayOfYearUpdateReceiver::class.java).let {
-                PendingIntent.getBroadcast(context, 0, it, 0)
+                PendingIntent.getBroadcast(context, 0, it, PendingIntent.FLAG_IMMUTABLE)
             }
             AlarmUtil.setMidnightAlarm(alarmManager, alarmIntent)
         }
