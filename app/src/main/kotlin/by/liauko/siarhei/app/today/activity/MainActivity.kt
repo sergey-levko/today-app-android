@@ -11,14 +11,12 @@ import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.util.TypedValue
-import android.widget.ProgressBar
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import by.liauko.siarhei.app.today.R
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import by.liauko.siarhei.app.today.databinding.ActivityMainBinding
 import java.text.DateFormat
 import java.util.Calendar
 import java.util.Date
@@ -32,16 +30,14 @@ import java.util.GregorianCalendar
  */
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var currentDateTextView: TextView
-    private lateinit var dayTextView: TextView
-    private lateinit var dayProgressBar: ProgressBar
-
+    private lateinit var viewBinding: ActivityMainBinding
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
-        setContentView(R.layout.activity_main)
+        viewBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(viewBinding.root)
 
         AppCompatDelegate.setDefaultNightMode(
             if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P)
@@ -54,7 +50,10 @@ class MainActivity : AppCompatActivity() {
 
         sharedPreferences = applicationContext.getSharedPreferences(getString(R.string.shared_preferences_name), Context.MODE_PRIVATE)
 
-        initElements()
+        viewBinding.settingsFab.setOnClickListener { startActivity(
+            Intent(applicationContext, SettingsActivity::class.java)
+        ) }
+
         initData()
     }
 
@@ -64,33 +63,23 @@ class MainActivity : AppCompatActivity() {
         initData()
     }
 
-    private fun initElements() {
-        currentDateTextView = findViewById(R.id.current_date)
-        dayTextView = findViewById(R.id.day_of_year_text)
-        dayProgressBar = findViewById(R.id.progressBar)
-
-        findViewById<FloatingActionButton>(R.id.settings_fab).setOnClickListener { startActivity(
-            Intent(applicationContext, SettingsActivity::class.java)
-        ) }
-    }
-
     private fun initData() {
-        currentDateTextView.text = DateFormat.getDateInstance().format(Date(System.currentTimeMillis()))
+        viewBinding.currentDate.text = DateFormat.getDateInstance().format(Date(System.currentTimeMillis()))
 
         val showTotalDays = sharedPreferences.getBoolean(getString(R.string.total_days_key), false)
 
         val currentDay = GregorianCalendar.getInstance().get(Calendar.DAY_OF_YEAR)
         val lastDayOfYear = GregorianCalendar.getInstance().getActualMaximum(Calendar.DAY_OF_YEAR)
         if (showTotalDays) {
-            dayTextView.text = getString(R.string.total_days_format, currentDay, lastDayOfYear)
+            viewBinding.dayOfYearText.text = getString(R.string.total_days_format, currentDay, lastDayOfYear)
             if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-                dayTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 38f)
+                viewBinding.dayOfYearText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 38f)
             }
         } else {
-            dayTextView.text = currentDay.toString()
-            dayTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48f)
+            viewBinding.dayOfYearText.text = currentDay.toString()
+            viewBinding.dayOfYearText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48f)
         }
-        dayTextView.setOnClickListener {
+        viewBinding.dayOfYearText.setOnClickListener {
             val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             clipboard.setPrimaryClip(ClipData.newPlainText(getString(R.string.clipboard_day_of_year_label), currentDay.toString()))
             Toast.makeText(
@@ -99,8 +88,8 @@ class MainActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
         }
-        dayProgressBar.progress = currentDay
-        dayProgressBar.max = lastDayOfYear
+        viewBinding.progressBar.progress = currentDay
+        viewBinding.progressBar.max = lastDayOfYear
     }
 
     private fun createNotificationChannel() {
