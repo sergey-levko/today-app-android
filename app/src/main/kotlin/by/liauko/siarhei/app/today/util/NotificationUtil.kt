@@ -36,17 +36,13 @@ object NotificationUtil {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     val builder = Notification.Builder(context, context.getString(R.string.notification_channel_id))
                             .setSmallIcon(Icon.createWithBitmap(bitmap))
-                            .setContentTitle("""${context.getString(R.string.today_is_notification_text)} 
-                                |${currentDay} 
-                                |${context.getString(R.string.day_of_year_notification_text)}""".trimMargin())
+                            .setContentTitle(context.getString(R.string.notification_text, currentDay))
                     builder.build()
 
                 } else {
                     val builder = NotificationCompat.Builder(context, context.getString(R.string.notification_channel_id))
                             .setSmallIcon(R.drawable.ic_action_name)
-                            .setContentTitle("""${context.getString(R.string.today_is_notification_text)} 
-                                |${currentDay} 
-                                |${context.getString(R.string.day_of_year_notification_text)}""".trimMargin())
+                            .setContentTitle(context.getString(R.string.notification_text, currentDay))
                             .setPriority(NotificationCompat.PRIORITY_HIGH)
                     builder.build()
                 }

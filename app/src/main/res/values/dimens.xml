@@ -3,7 +3,24 @@
     <dimen name="settings_margin_bottom">16dp</dimen>
     <dimen name="toolbar_elevation">4dp</dimen>
     <dimen name="toolbar_margin_bottom">8dp</dimen>
-    <dimen name="widget_margin_bottom">10dp</dimen>
-    <dimen name="color_item_margin">4dp</dimen>
-    <dimen name="widget_config_activity_horizontal_margin">8dp</dimen>
+    <dimen name="fab_margin">24dp</dimen>
+    <dimen name="day_text_size">48sp</dimen>
+
+    <!-- Dimens for landscape layout -->
+    <dimen name="text_margin_top_land">24dp</dimen>
+    <dimen name="text_margin_bottom_land">48dp</dimen>
+    <dimen name="progress_bar_horizontal_margin_land">128dp</dimen>
+
+    <!-- Dimens for widget configuration layout -->
+    <dimen name="widget_config_margin">8dp</dimen>
+    <dimen name="widget_config_color_item_margin">4dp</dimen>
+    <dimen name="widget_config_preview_bottom_margin">8dp</dimen>
+    <dimen name="widget_config_preview_model_vertical_margin">16dp</dimen>
+    <dimen name="widget_config_preview_model_text_size">32sp</dimen>
+    <dimen name="widget_config_image_view_horizontal_margin">16dp</dimen>
+
+    <!-- Dimens for widget layout -->
+    <dimen name="widget_margin_bottom">14dp</dimen>
+    <dimen name="widget_layout_margin">2dp</dimen>
+    <dimen name="widget_text_size">20sp</dimen>
 </resources>

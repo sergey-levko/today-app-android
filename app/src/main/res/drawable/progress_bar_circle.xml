@@ -7,7 +7,7 @@
             android:thicknessRatio="16"
             android:useLevel="false">
             <stroke
-                android:width="4dp"
+                android:width="2dp"
                 android:color="@color/primary" />
 
         </shape>
@@ -19,7 +19,7 @@
             <shape
                 android:shape="ring"
                 android:innerRadiusRatio="4"
-                android:thicknessRatio="18"
+                android:thicknessRatio="17"
                 android:useLevel="true" >
                 <solid android:color="@color/primary" />
             </shape>
