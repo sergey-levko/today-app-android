@@ -133,7 +133,7 @@ internal fun updateAppWidget(
 
     val intent = Intent(context, DayOfYearWidget::class.java)
     intent.action = COPY_ACTION
-    views.setOnClickPendingIntent(R.id.widget_text, PendingIntent.getBroadcast(context, 0, intent, 0))
+    views.setOnClickPendingIntent(R.id.widget_text, PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE))
 
     // Instruct the widget manager to update the widget
     appWidgetManager.updateAppWidget(appWidgetId, views)

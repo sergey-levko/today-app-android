@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#ab000d</color>
+    <color name="primary">#eaa19c</color>
     <color name="primaryDark">#202020</color>
-    <color name="secondary">#ab000d</color>
-    <color name="secondaryVariant">#e53935</color>
+    <color name="primaryContainer">#ab000d</color>
+    <color name="onPrimaryContainer">#eaa19c</color>
+    <color name="secondary">#eaa19c</color>
     <color name="background">#202020</color>
     <color name="surface">#1f1f1f</color>
     <color name="error">#ff6f60</color>
@@ -18,6 +19,6 @@
     <color name="widgetBackground">#272727</color>
 
     <color name="launchScreenBackground">#202020</color>
-    <color name="launchScreenAppLogo">#ab000d</color>
+    <color name="launchScreenAppLogo">#eaa19c</color>
     <color name="launchScreenCompanyLogo">#555</color>
 </resources>

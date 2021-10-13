@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.App" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.App" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/toolbarPrimary</item>
         <item name="colorPrimaryVariant">@color/primaryDark</item>
@@ -14,6 +15,9 @@
         <item name="colorOnSurface">@color/onSurface</item>
         <item name="colorOnError">@color/onError</item>
         <item name="android:windowLightStatusBar">@bool/isLightStatusBar</item>
+
+        <item name="colorPrimaryContainer">@color/primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/onPrimaryContainer</item>
     </style>
 
     <style name="Theme.App.Starter" parent="Theme.SplashScreen">

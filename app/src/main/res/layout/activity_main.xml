@@ -7,18 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
 
-    <ImageButton
-        android:id="@+id/settings_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/settings"
-        android:background="@null"
-        android:layout_marginTop="@dimen/settings_margin_bottom"
-        android:layout_marginEnd="@dimen/settings_margin_bottom"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/settings_description" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,7 +34,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/primary"
         android:textStyle="bold"
-        android:textSize="48sp"
+        android:textSize="@dimen/day_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -58,5 +46,16 @@
         android:progressDrawable="@drawable/progress_bar_circle"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/settings_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/settings"
+        android:contentDescription="@string/settings_description"
+        android:layout_marginBottom="@dimen/fab_margin"
+        android:layout_marginEnd="@dimen/fab_margin"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

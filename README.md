@@ -19,4 +19,4 @@ The application supports home screen widget which has two types of size: 1x1 and
 </p>
 
 ## License
-Today app is distributed under the [GNU General Public License v3.0](https://github.com/Okvel/android-car-logbook/blob/master/LICENSE)
+All rights reserved. Source code cannot be modified or redistributed without explicit permission from the author.
