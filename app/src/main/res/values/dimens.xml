@@ -4,8 +4,7 @@
     <dimen name="toolbar_elevation">4dp</dimen>
     <dimen name="toolbar_margin_bottom">8dp</dimen>
     <dimen name="fab_margin">24dp</dimen>
-    <dimen name="only_day_text_size">48sp</dimen>
-    <dimen name="day_and_total_text_size">38sp</dimen>
+    <dimen name="day_text_size">48sp</dimen>
 
     <!-- Dimens for landscape layout -->
     <dimen name="text_margin_top_land">24dp</dimen>
@@ -21,7 +20,7 @@
     <dimen name="widget_config_image_view_horizontal_margin">16dp</dimen>
 
     <!-- Dimens for widget layout -->
-    <dimen name="widget_margin_bottom">10dp</dimen>
+    <dimen name="widget_margin_bottom">14dp</dimen>
     <dimen name="widget_layout_margin">2dp</dimen>
     <dimen name="widget_text_size">20sp</dimen>
 </resources>

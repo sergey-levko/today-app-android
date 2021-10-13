@@ -42,7 +42,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/text_margin_top_land"
             android:layout_marginBottom="@dimen/text_margin_bottom_land"
-            android:textSize="@dimen/only_day_text_size" />
+            android:textSize="@dimen/day_text_size" />
 
         <ProgressBar
             android:id="@+id/progressBar"
