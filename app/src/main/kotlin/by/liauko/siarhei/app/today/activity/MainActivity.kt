@@ -7,15 +7,18 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
-import android.widget.ImageButton
+import android.util.TypedValue
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import by.liauko.siarhei.app.today.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.text.DateFormat
 import java.util.Calendar
 import java.util.Date
@@ -37,6 +40,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen()
         setContentView(R.layout.activity_main)
 
         AppCompatDelegate.setDefaultNightMode(
@@ -52,10 +56,6 @@ class MainActivity : AppCompatActivity() {
 
         initElements()
         initData()
-
-        if (savedInstanceState == null) {
-            startActivity(Intent(applicationContext, LaunchScreenActivity::class.java))
-        }
     }
 
     override fun onResume() {
@@ -69,7 +69,9 @@ class MainActivity : AppCompatActivity() {
         dayTextView = findViewById(R.id.day_of_year_text)
         dayProgressBar = findViewById(R.id.progressBar)
 
-        findViewById<ImageButton>(R.id.settings_button).setOnClickListener { startActivity(Intent(applicationContext, SettingsActivity::class.java)) }
+        findViewById<FloatingActionButton>(R.id.settings_fab).setOnClickListener { startActivity(
+            Intent(applicationContext, SettingsActivity::class.java)
+        ) }
     }
 
     private fun initData() {
@@ -79,12 +81,15 @@ class MainActivity : AppCompatActivity() {
 
         val currentDay = GregorianCalendar.getInstance().get(Calendar.DAY_OF_YEAR)
         val lastDayOfYear = GregorianCalendar.getInstance().getActualMaximum(Calendar.DAY_OF_YEAR)
-        val dayText = if (showTotalDays) {
-            currentDay.toString() + getString(R.string.days_delimiter) + lastDayOfYear.toString()
+        if (showTotalDays) {
+            dayTextView.text = getString(R.string.total_days_format, currentDay, lastDayOfYear)
+            if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                dayTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 38f)
+            }
         } else {
-            currentDay.toString()
+            dayTextView.text = currentDay.toString()
+            dayTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48f)
         }
-        dayTextView.text = dayText
         dayTextView.setOnClickListener {
             val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             clipboard.setPrimaryClip(ClipData.newPlainText(getString(R.string.clipboard_day_of_year_label), currentDay.toString()))

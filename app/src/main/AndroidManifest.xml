@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppDefault">
+        android:theme="@style/Theme.App">
         <receiver
             android:name=".widget.DayOfYearWidget"
             android:exported="true">
@@ -52,7 +52,8 @@
 
         <activity
             android:name=".activity.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.App.Starter">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -67,9 +68,6 @@
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.LaunchScreenActivity"
-            android:theme="@style/LaunchScreen" />
     </application>
 
 </manifest>

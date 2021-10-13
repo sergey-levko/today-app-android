@@ -18,10 +18,9 @@
     <string name="settings_preference_terms_title">Terms &amp; Conditions</string>
     <string name="settings_preference_terms_url">https://www.gnu.org/licenses/gpl-3.0.en.html</string>
 
-    <string name="days_delimiter" translatable="false">/</string>
+    <string name="total_days_format" translatable="false">%d/%d</string>
 
-    <string name="today_is_notification_text">Today is</string>
-    <string name="day_of_year_notification_text">day of the year</string>
+    <string name="notification_text">Today is %d day of the year</string>
 
     <string name="ok" translatable="false">OK</string>
     <string name="cancel">Cancel</string>

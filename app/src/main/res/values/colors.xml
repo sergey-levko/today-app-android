@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="primary">#c62828</color>
-    <color name="primaryDark">#c7c7c7</color>
+    <color name="primaryDark">#eaeaea</color>
+    <color name="primaryContainer">#eaa19c</color>
+    <color name="onPrimaryContainer">#ab000d</color>
     <color name="secondary">#c62828</color>
-    <color name="secondaryVariant">#ab000d</color>
-    <color name="background">#eaeaea</color>
+    <color name="background">#fafafa</color>
     <color name="surface">#f2f2f2</color>
     <color name="error">#b00020</color>
     <color name="onPrimary">#121212</color>

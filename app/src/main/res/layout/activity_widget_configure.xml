@@ -13,8 +13,7 @@
         app:title="Widget configuration"
         android:elevation="@dimen/toolbar_elevation"
         android:background="@color/toolbarPrimary"
-        android:layout_marginBottom="@dimen/toolbar_margin_bottom"
-        android:theme="@style/ThemeOverlay.MaterialComponents.ActionBar" />
+        android:layout_marginBottom="@dimen/toolbar_margin_bottom" />
 
     <TextView
         android:layout_width="match_parent"
