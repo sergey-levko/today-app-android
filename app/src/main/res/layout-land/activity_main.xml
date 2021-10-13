@@ -40,16 +40,16 @@
             android:textColor="@color/primary"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="48dp"
-            android:textSize="48sp" />
+            android:layout_marginTop="@dimen/text_margin_top_land"
+            android:layout_marginBottom="@dimen/text_margin_bottom_land"
+            android:textSize="@dimen/only_day_text_size" />
 
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="128dp" />
+            android:layout_marginHorizontal="@dimen/progress_bar_horizontal_margin_land" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -58,8 +58,8 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/settings"
         android:contentDescription="@string/settings_description"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="@dimen/fab_margin"
+        android:layout_marginEnd="@dimen/fab_margin"
         android:layout_gravity="end|bottom" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

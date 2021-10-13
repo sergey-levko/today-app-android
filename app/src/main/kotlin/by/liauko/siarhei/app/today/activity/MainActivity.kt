@@ -84,11 +84,11 @@ class MainActivity : AppCompatActivity() {
         if (showTotalDays) {
             dayTextView.text = getString(R.string.total_days_format, currentDay, lastDayOfYear)
             if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-                dayTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 38f)
+                dayTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, resources.getDimension(R.dimen.day_and_total_text_size))
             }
         } else {
             dayTextView.text = currentDay.toString()
-            dayTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48f)
+            dayTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, resources.getDimension(R.dimen.only_day_text_size))
         }
         dayTextView.setOnClickListener {
             val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
