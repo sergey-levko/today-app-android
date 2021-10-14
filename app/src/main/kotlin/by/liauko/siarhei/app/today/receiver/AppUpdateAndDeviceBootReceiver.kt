@@ -1,4 +1,4 @@
-package by.liauko.siarhei.app.today.service
+package by.liauko.siarhei.app.today.receiver
 
 import android.app.AlarmManager
 import android.app.PendingIntent
@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.core.content.ContextCompat
 import by.liauko.siarhei.app.today.R
+import by.liauko.siarhei.app.today.service.DayOfYearForegroundService
 import by.liauko.siarhei.app.today.util.AlarmUtil
 
 /**
@@ -15,10 +16,11 @@ import by.liauko.siarhei.app.today.util.AlarmUtil
  * @author Siarhei Liauko
  * @since 1.0.0
  */
-class DeviceBootReceiver : BroadcastReceiver() {
+class AppUpdateAndDeviceBootReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
-        if (intent.action == "android.intent.action.BOOT_COMPLETED") {
+        if (intent.action == "android.intent.action.BOOT_COMPLETED"
+            || intent.action == "android.intent.action.MY_PACKAGE_REPLACED") {
             val notificationStatus = context.getSharedPreferences(
                 context.getString(R.string.shared_preferences_name),
                 Context.MODE_PRIVATE
