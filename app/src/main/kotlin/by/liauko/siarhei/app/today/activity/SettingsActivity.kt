@@ -21,15 +21,12 @@ class SettingsActivity : AppCompatActivity() {
         viewBinding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        initToolbar()
+        viewBinding.toolbar.setNavigationIcon(R.drawable.arrow_left)
+        viewBinding.toolbar.setNavigationContentDescription(R.string.settings_back_button_description)
+        viewBinding.toolbar.setNavigationOnClickListener { finish() }
 
         supportFragmentManager.beginTransaction()
                 .replace(R.id.settings_frame_container, SettingsFragment())
                 .commit()
-    }
-
-    private fun initToolbar() {
-        viewBinding.toolbar.setNavigationIcon(R.drawable.arrow_left)
-        viewBinding.toolbar.setNavigationOnClickListener { finish() }
     }
 }

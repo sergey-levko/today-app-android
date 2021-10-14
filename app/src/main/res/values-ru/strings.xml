@@ -6,6 +6,7 @@
     <string name="settings_description">Настройки</string>
 
     <string name="settings_title">Настройки</string>
+    <string name="settings_back_button_description">Назад</string>
     <string name="app_preference_category_title">Приложение</string>
     <string name="about_preference_category_title">О приложении</string>
     <string name="settings_preference_about_text">Приложение. Application developed by Sergey Levko. Minsk, Republic of Belarus.</string>
