@@ -10,7 +10,11 @@ import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.TypedValue
+import android.view.View
+import android.view.ViewTreeObserver
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -38,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         installSplashScreen()
         viewBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
+        showSplashScreen()
 
         AppCompatDelegate.setDefaultNightMode(
             if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P)
@@ -61,6 +66,28 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
 
         initData()
+    }
+
+    /**
+     * Wait 1 second to show splash screen
+     */
+    private fun showSplashScreen() {
+        var ready = false
+        Handler(Looper.getMainLooper()).postDelayed({
+            ready = true
+        }, 1000)
+        val content = findViewById<View>(android.R.id.content)
+        content.viewTreeObserver.addOnPreDrawListener(
+            object : ViewTreeObserver.OnPreDrawListener {
+                override fun onPreDraw(): Boolean {
+                    if (ready) {
+                        content.viewTreeObserver.removeOnPreDrawListener(this)
+                    }
+
+                    return ready
+                }
+            }
+        )
     }
 
     private fun initData() {
