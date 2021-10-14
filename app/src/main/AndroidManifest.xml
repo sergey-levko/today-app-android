@@ -36,13 +36,14 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_info_day_of_year_2_2" />
         </receiver>
-        <receiver android:name=".service.DayOfYearUpdateReceiver" />
+        <receiver android:name=".receiver.DayOfYearUpdateReceiver" />
         <receiver
-            android:name=".service.DeviceBootReceiver"
+            android:name=".receiver.AppUpdateAndDeviceBootReceiver"
             android:enabled="false"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>
         </receiver>
 

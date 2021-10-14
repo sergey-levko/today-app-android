@@ -12,7 +12,7 @@ import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
 import by.liauko.siarhei.app.today.R
 import by.liauko.siarhei.app.today.service.ApplicationToolsStatusService
-import by.liauko.siarhei.app.today.service.DayOfYearUpdateReceiver
+import by.liauko.siarhei.app.today.receiver.DayOfYearUpdateReceiver
 
 /**
  * Class managing application settings items
