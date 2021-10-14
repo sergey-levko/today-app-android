@@ -1,4 +1,4 @@
-package by.liauko.siarhei.app.today.service
+package by.liauko.siarhei.app.today.receiver
 
 import android.app.AlarmManager
 import android.app.PendingIntent

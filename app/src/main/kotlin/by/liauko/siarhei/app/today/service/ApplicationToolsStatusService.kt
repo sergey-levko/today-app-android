@@ -9,6 +9,8 @@ import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import androidx.core.content.ContextCompat
 import by.liauko.siarhei.app.today.R
+import by.liauko.siarhei.app.today.receiver.AppUpdateAndDeviceBootReceiver
+import by.liauko.siarhei.app.today.receiver.DayOfYearUpdateReceiver
 import by.liauko.siarhei.app.today.util.AlarmUtil
 
 /**
@@ -39,7 +41,7 @@ class ApplicationToolsStatusService(private val context: Context) {
     fun updateNotificationStatus(status: Boolean) {
         val widgetStatus = sharedPreferences.getBoolean(context.getString(R.string.widget_status_key), false)
         sharedPreferences.edit().putBoolean(context.getString(R.string.notification_status_key), status).apply()
-        updateDeviceBootReceiverState(status)
+        updateAppUpdateAndDeviceBootReceiverState(status)
         if (status) {
             ContextCompat.startForegroundService(context, Intent(context, DayOfYearForegroundService::class.java))
             if (!widgetStatus) {
@@ -64,7 +66,7 @@ class ApplicationToolsStatusService(private val context: Context) {
     fun updateWidgetStatus(status: Boolean) {
         val notificationStatus = sharedPreferences.getBoolean(context.getString(R.string.notification_status_key), false)
         sharedPreferences.edit().putBoolean(context.getString(R.string.widget_status_key), status).apply()
-        updateDeviceBootReceiverState(status)
+        updateAppUpdateAndDeviceBootReceiverState(status)
         if (!notificationStatus) {
             if (status) {
                 AlarmUtil.setMidnightAlarm(alarmManager, alarmIntent)
@@ -74,9 +76,9 @@ class ApplicationToolsStatusService(private val context: Context) {
         }
     }
 
-    private fun updateDeviceBootReceiverState(enable: Boolean) {
+    private fun updateAppUpdateAndDeviceBootReceiverState(enable: Boolean) {
         context.packageManager.setComponentEnabledSetting(
-            ComponentName(context, DeviceBootReceiver::class.java),
+            ComponentName(context, AppUpdateAndDeviceBootReceiver::class.java),
             if (enable) PackageManager.COMPONENT_ENABLED_STATE_ENABLED
             else PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
             PackageManager.DONT_KILL_APP
