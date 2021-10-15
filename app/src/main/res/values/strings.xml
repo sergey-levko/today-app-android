@@ -1,9 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">Today</string>
 
-    <string name="launch_screen_app_logo_content" translatable="false">app_logo</string>
-    <string name="launch_screen_company_logo_content" translatable="false">company_logo</string>
-
     <string name="today_is_text">Today is</string>
     <string name="clipboard_day_of_year_label" translatable="false">current_day_of_the_year</string>
     <string name="day_copied_toast_message">Day of the year was copied</string>
@@ -22,17 +19,18 @@
 
     <string name="ok" translatable="false">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="navigation_back_button_description">Back</string>
 
     <string name="widget_background_content_description" translatable="false">background</string>
 
     <string name="widget_configuration_menu_confirm">Confirm</string>
     <string name="widget_configuration_preview">Preview</string>
-    <string name="widget_configuration_preview_description" translatable="false">preview</string>
+    <string name="widget_configuration_preview_description">Preview</string>
     <string name="widget_configuration_default_theme_switch">Use default day/night theme</string>
     <string name="widget_configuration_form_selector">Form selector</string>
-    <string name="widget_configuration_circle_form_description" translatable="false">circle</string>
-    <string name="widget_configuration_rectangle_form_description" translatable="false">rectangle</string>
-    <string name="widget_configuration_squircle_form_description" translatable="false">squircle</string>
+    <string name="widget_configuration_circle_form_description">Circle</string>
+    <string name="widget_configuration_rectangle_form_description">Rectangle</string>
+    <string name="widget_configuration_squircle_form_description">Squircle</string>
     <string name="widget_configuration_background_opacity">Background opacity</string>
     <string name="widget_configuration_color_selector">Color selector</string>
     <string name="widget_configuration_background_radio_button">Background</string>

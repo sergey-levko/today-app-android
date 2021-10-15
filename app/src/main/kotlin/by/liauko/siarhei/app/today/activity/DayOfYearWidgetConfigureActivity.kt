@@ -94,6 +94,7 @@ class DayOfYearWidgetConfigureActivity : Activity() {
 
     private fun initToolbar() {
         viewBinding.widgetConfigurationToolbar.setNavigationIcon(R.drawable.arrow_left)
+        viewBinding.widgetConfigurationToolbar.setNavigationContentDescription(R.string.navigation_back_button_description)
         viewBinding.widgetConfigurationToolbar.setNavigationOnClickListener { finish() }
         viewBinding.widgetConfigurationToolbar.inflateMenu(R.menu.menu_widget_configuration)
         viewBinding.widgetConfigurationToolbar.setOnMenuItemClickListener {
