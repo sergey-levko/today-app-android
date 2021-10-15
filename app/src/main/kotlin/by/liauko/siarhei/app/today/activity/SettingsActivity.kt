@@ -22,7 +22,7 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(viewBinding.root)
 
         viewBinding.toolbar.setNavigationIcon(R.drawable.arrow_left)
-        viewBinding.toolbar.setNavigationContentDescription(R.string.settings_back_button_description)
+        viewBinding.toolbar.setNavigationContentDescription(R.string.navigation_back_button_description)
         viewBinding.toolbar.setNavigationOnClickListener { finish() }
 
         supportFragmentManager.beginTransaction()
