@@ -5,6 +5,10 @@
     <string name="settings_description">Nustatymai</string>
     <string name="settings_title">Nustatymai</string>
     <string name="app_preference_category_title">Taikymas</string>
+    <string name="total_days_switch_title">Bendras dienų skaičius</string>
+    <string name="total_days_switch_summary">Rodyti bendras metų dienas</string>
+    <string name="notification_switch_title">Rodyti pranešimą</string>
+    <string name="notification_switch_summary">Būsenos juostoje rodyti esamą metų dieną</string>
     <string name="about_preference_category_title">Apie</string>
     <string name="settings_preference_about_text">Programą sukūrė Sergey Levko. Minskas, Baltarusijos Respublika.</string>
     <string name="settings_preference_version_title">Versija</string>
@@ -14,6 +18,7 @@
     <string name="cancel">Atšaukti</string>
     <string name="navigation_back_button_description">Atgal</string>
 
+    <string name="widget_configuration_title">Valdiklio konfigūracija</string>
     <string name="widget_configuration_menu_confirm">Patvirtinti</string>
     <string name="widget_configuration_preview">Peržiūra</string>
     <string name="widget_configuration_preview_description">Valdiklio peržiūra</string>

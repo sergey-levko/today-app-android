@@ -5,6 +5,10 @@
     <string name="settings_description">Instellingen</string>
     <string name="settings_title">Instellingen</string>
     <string name="app_preference_category_title">Sollicitatie</string>
+    <string name="total_days_switch_title">Totaal aantal dagen</string>
+    <string name="total_days_switch_summary">Toon totaal jaardagen</string>
+    <string name="notification_switch_title">Bekijk notificatie</string>
+    <string name="notification_switch_summary">Toon de huidige dag van het jaar in de statusbalk</string>
     <string name="about_preference_category_title">Over toepassing</string>
     <string name="settings_preference_about_text">Applicatie ontwikkeld door Sergey Levko. Minsk, Republiek Wit-Rusland.</string>
     <string name="settings_preference_version_title">Versie</string>
@@ -14,6 +18,7 @@
     <string name="cancel">Annuleren</string>
     <string name="navigation_back_button_description">Rug</string>
 
+    <string name="widget_configuration_title">Widget-configuratie</string>
     <string name="widget_configuration_menu_confirm">Bevestigen</string>
     <string name="widget_configuration_preview">Voorbeeld</string>
     <string name="widget_configuration_preview_description">Widgetvoorbeeld</string>

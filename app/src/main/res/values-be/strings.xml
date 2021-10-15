@@ -5,6 +5,10 @@
     <string name="settings_description">Налады</string>
     <string name="settings_title">Налады</string>
     <string name="app_preference_category_title">Дадатак</string>
+    <string name="total_days_switch_title">Агульная колькасць дзён</string>
+    <string name="total_days_switch_summary">Паказваць агульны лік дзён у годзе</string>
+    <string name="notification_switch_title">Паказваць апавяшчэнне</string>
+    <string name="notification_switch_summary">Паказваць бягучы дзень года ў статус бары</string>
     <string name="about_preference_category_title">Аб дадатку</string>
     <string name="settings_preference_about_text">Прыкладанне створана Сяргеем Ляўко. Мінск, Беларусь.</string>
     <string name="settings_preference_version_title">Версія</string>
@@ -14,6 +18,7 @@
     <string name="cancel">Адмена</string>
     <string name="navigation_back_button_description">Назад</string>
 
+    <string name="widget_configuration_title">Налада фішкі</string>
     <string name="widget_configuration_menu_confirm">Пацвердзіць</string>
     <string name="widget_configuration_preview">Перадпаказ</string>
     <string name="widget_configuration_preview_description">Прыклад фішкі</string>

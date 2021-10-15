@@ -12,7 +12,7 @@ import androidx.core.view.get
 import androidx.core.view.size
 import by.liauko.siarhei.app.today.ApplicationConstants
 import by.liauko.siarhei.app.today.R
-import by.liauko.siarhei.app.today.databinding.ActivityWidgetConfigureBinding
+import by.liauko.siarhei.app.today.databinding.ActivityWidgetConfigurationBinding
 import by.liauko.siarhei.app.today.widget.updateAppWidget
 import java.util.Calendar
 import java.util.GregorianCalendar
@@ -25,7 +25,7 @@ import java.util.GregorianCalendar
  */
 class DayOfYearWidgetConfigureActivity : Activity() {
 
-    private lateinit var viewBinding: ActivityWidgetConfigureBinding
+    private lateinit var viewBinding: ActivityWidgetConfigurationBinding
     private lateinit var widgetParameters: WidgetParameters
 
     private var appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID
@@ -59,7 +59,7 @@ class DayOfYearWidgetConfigureActivity : Activity() {
 
     public override fun onCreate(bundle: Bundle?) {
         super.onCreate(bundle)
-        viewBinding = ActivityWidgetConfigureBinding.inflate(layoutInflater)
+        viewBinding = ActivityWidgetConfigurationBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
         // Set the result to CANCELED.  This will cause the widget host to cancel

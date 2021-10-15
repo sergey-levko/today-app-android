@@ -5,6 +5,10 @@
     <string name="settings_description">Einstellungen</string>
     <string name="settings_title">Einstellungen</string>
     <string name="app_preference_category_title">Anwendung</string>
+    <string name="total_days_switch_title">Gesamtzahl der Tage</string>
+    <string name="total_days_switch_summary">Gesamtjahrestage anzeigen</string>
+    <string name="notification_switch_title">Benachrichtigung anzeigen</string>
+    <string name="notification_switch_summary">Zeigt den aktuellen Tag des Jahres in der Statusleiste an</string>
     <string name="about_preference_category_title">Über</string>
     <string name="settings_preference_about_text">Anwendung von Sergey Levko entwickelt. Minsk, Republik Weißrussland.</string>
     <string name="settings_preference_version_title">Ausführung</string>
@@ -14,6 +18,7 @@
     <string name="cancel">Abbrechen</string>
     <string name="navigation_back_button_description">Zurück</string>
 
+    <string name="widget_configuration_title">Widget-Konfiguration</string>
     <string name="widget_configuration_menu_confirm">Bestätigen</string>
     <string name="widget_configuration_preview">Vorschau</string>
     <string name="widget_configuration_preview_description">Widget-Vorschau</string>

@@ -10,7 +10,7 @@
         android:id="@+id/widget_configuration_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:title="Widget configuration"
+        app:title="@string/widget_configuration_title"
         android:elevation="@dimen/toolbar_elevation"
         android:background="@color/toolbarPrimary"
         android:layout_marginBottom="@dimen/toolbar_margin_bottom" />

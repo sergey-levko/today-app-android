@@ -5,6 +5,10 @@
     <string name="settings_description">Ustawienia</string>
     <string name="settings_title">Ustawienia</string>
     <string name="app_preference_category_title">Aplikacja</string>
+    <string name="total_days_switch_title">Całkowita liczba dni</string>
+    <string name="total_days_switch_summary">Pokaż całkowitą liczbę dni w roku</string>
+    <string name="notification_switch_title">Pokaż powiadomienie</string>
+    <string name="notification_switch_summary">Pokaż bieżący dzień roku na pasku stanu</string>
     <string name="about_preference_category_title">O aplikacji.</string>
     <string name="settings_preference_about_text">Aplikacja opracowana przez Sergey Levko. Mińsk, Republika Białorusi.</string>
     <string name="settings_preference_version_title">Wersja</string>
@@ -14,6 +18,7 @@
     <string name="cancel">Anulować</string>
     <string name="navigation_back_button_description">Plecy</string>
 
+    <string name="widget_configuration_title">Konfiguracja widżetu</string>
     <string name="widget_configuration_menu_confirm">Potwierdzać</string>
     <string name="widget_configuration_preview">Zapowiedź</string>
     <string name="widget_configuration_preview_description">Podgląd widżetu</string>
