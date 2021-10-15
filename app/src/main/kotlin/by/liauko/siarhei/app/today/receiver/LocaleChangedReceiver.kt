@@ -7,6 +7,12 @@ import androidx.core.content.ContextCompat
 import by.liauko.siarhei.app.today.R
 import by.liauko.siarhei.app.today.service.DayOfYearForegroundService
 
+/**
+ * Class handling case when device locale has been changed
+ *
+ * @author Siarhei Liauko
+ * @since 1.0.3
+ */
 class LocaleChangedReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
