@@ -9,7 +9,7 @@
     <string name="settings_preference_about_text">Додаток створено Сергієм Левко. Мінськ, Білорусь.</string>
     <string name="settings_preference_version_title">Версія</string>
 
-    <string name="notification_text">Сьогодні %d день року</string>
+    <string name="notification_text">Сьогодні %d день у році</string>
 
     <string name="cancel">Відміна</string>
     <string name="navigation_back_button_description">Назад</string>

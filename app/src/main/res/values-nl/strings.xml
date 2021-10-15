@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="today_is_text">Het is vandaag</string>
+    <string name="day_copied_toast_message">Dag van het jaar werd gekopieerd</string>
+    <string name="settings_description">Instellingen</string>
+    <string name="settings_title">Instellingen</string>
+    <string name="app_preference_category_title">Sollicitatie</string>
+    <string name="about_preference_category_title">Over toepassing</string>
+    <string name="settings_preference_about_text">Applicatie ontwikkeld door Sergey Levko. Minsk, Republiek Wit-Rusland.</string>
+    <string name="settings_preference_version_title">Versie</string>
+
+    <string name="notification_text">Vandaag is het de % dag van het jaar.</string>
+
+    <string name="cancel">Annuleren</string>
+    <string name="navigation_back_button_description">Rug</string>
+
+    <string name="widget_configuration_menu_confirm">Bevestigen</string>
+    <string name="widget_configuration_preview">Voorbeeld</string>
+    <string name="widget_configuration_preview_description">Widgetvoorbeeld</string>
+    <string name="widget_configuration_default_theme_switch">Standaard thema</string>
+    <string name="widget_configuration_form_selector">Formulierkiezer</string>
+    <string name="widget_configuration_circle_form_description">Cirkel</string>
+    <string name="widget_configuration_rectangle_form_description">Rechthoek</string>
+    <string name="widget_configuration_squircle_form_description">Afgerond vierkant</string>
+    <string name="widget_configuration_background_opacity">Achtergronddekking</string>
+    <string name="widget_configuration_color_selector">Kleurkiezer</string>
+    <string name="widget_configuration_background_radio_button">Achtergrond</string>
+    <string name="widget_configuration_text_radio_button">Tekst</string>
+</resources>

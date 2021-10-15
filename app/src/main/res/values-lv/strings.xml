@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="today_is_text">Šodien ir</string>
+    <string name="day_copied_toast_message">Gada diena tika nokopēta</string>
+    <string name="settings_description">Iestatījumi</string>
+    <string name="settings_title">Iestatījumi</string>
+    <string name="app_preference_category_title">Pieteikums</string>
+    <string name="about_preference_category_title">Par pieteikšanos</string>
+    <string name="settings_preference_about_text">Lietojumprogrammu izstrādāja Sergey Levko. Minska, Baltkrievijas Republika.</string>
+    <string name="settings_preference_version_title">Versija</string>
+
+    <string name="notification_text">Šodien ir %d gada diena.</string>
+
+    <string name="cancel">Atcelt</string>
+    <string name="navigation_back_button_description">Atpakaļ</string>
+
+    <string name="widget_configuration_menu_confirm">Apstiprināt</string>
+    <string name="widget_configuration_preview">Priekšskatīt</string>
+    <string name="widget_configuration_preview_description">Logrīka priekšskatījums</string>
+    <string name="widget_configuration_default_theme_switch">Noklusējuma motīvs</string>
+    <string name="widget_configuration_form_selector">Veidlapas atlasītājs</string>
+    <string name="widget_configuration_circle_form_description">Aplis</string>
+    <string name="widget_configuration_rectangle_form_description">Taisnstūris</string>
+    <string name="widget_configuration_squircle_form_description">Noapaļots kvadrāts</string>
+    <string name="widget_configuration_background_opacity">Fona necaurredzamība</string>
+    <string name="widget_configuration_color_selector">Krāsu atlasītājs</string>
+    <string name="widget_configuration_background_radio_button">Fons</string>
+    <string name="widget_configuration_text_radio_button">Teksts</string>
+</resources>

@@ -21,7 +21,7 @@
     <string name="widget_configuration_form_selector">Selector de formulario</string>
     <string name="widget_configuration_circle_form_description">Circulo</string>
     <string name="widget_configuration_rectangle_form_description">Rectángulo</string>
-    <string name="widget_configuration_squircle_form_description">Ardilla</string>
+    <string name="widget_configuration_squircle_form_description">Cuadrado redondeado</string>
     <string name="widget_configuration_background_opacity">Opacidad de fondo</string>
     <string name="widget_configuration_color_selector">Selector de color</string>
     <string name="widget_configuration_background_radio_button">Fondo</string>
