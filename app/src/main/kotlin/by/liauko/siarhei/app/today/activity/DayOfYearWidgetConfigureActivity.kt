@@ -1,6 +1,5 @@
 package by.liauko.siarhei.app.today.activity
 
-import android.app.Activity
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.Intent
@@ -8,11 +7,14 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.SeekBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
 import androidx.core.view.size
+import androidx.lifecycle.ViewModelProvider
 import by.liauko.siarhei.app.today.ApplicationConstants
 import by.liauko.siarhei.app.today.R
 import by.liauko.siarhei.app.today.databinding.ActivityWidgetConfigurationBinding
+import by.liauko.siarhei.app.today.viewmodel.WidgetParametersViewModel
 import by.liauko.siarhei.app.today.widget.updateAppWidget
 import java.util.Calendar
 import java.util.GregorianCalendar
@@ -23,10 +25,10 @@ import java.util.GregorianCalendar
  * @author Siarhei Liauko
  * @since 1.0.0
  */
-class DayOfYearWidgetConfigureActivity : Activity() {
+class DayOfYearWidgetConfigureActivity : AppCompatActivity() {
 
     private lateinit var viewBinding: ActivityWidgetConfigurationBinding
-    private lateinit var widgetParameters: WidgetParameters
+    private lateinit var model: WidgetParametersViewModel
 
     private var appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID
     private var isDefaultTheme = true
@@ -38,21 +40,21 @@ class DayOfYearWidgetConfigureActivity : Activity() {
                 viewBinding.circleForm.setColorFilter(getColor(R.color.onBackground))
                 (it as ImageView).setColorFilter(getColor(R.color.primary))
                 viewBinding.widgetPreview.setImageResource(R.drawable.widget_background_circle)
-                widgetParameters.form = R.drawable.widget_background_circle
+                model.form = R.drawable.widget_background_circle
             }
             R.id.rectangle_form -> {
                 viewBinding.circleForm.setColorFilter(getColor(R.color.onBackground))
                 viewBinding.squircleForm.setColorFilter(getColor(R.color.onBackground))
                 (it as ImageView).setColorFilter(getColor(R.color.primary))
                 viewBinding.widgetPreview.setImageResource(R.drawable.widget_background_rectangle)
-                widgetParameters.form = R.drawable.widget_background_rectangle
+                model.form = R.drawable.widget_background_rectangle
             }
             R.id.squircle_form -> {
                 viewBinding.circleForm.setColorFilter(getColor(R.color.onBackground))
                 viewBinding.rectangleForm.setColorFilter(getColor(R.color.onBackground))
                 (it as ImageView).setColorFilter(getColor(R.color.primary))
                 viewBinding.widgetPreview.setImageResource(R.drawable.widget_background_squircle)
-                widgetParameters.form = R.drawable.widget_background_squircle
+                model.form = R.drawable.widget_background_squircle
             }
         }
     }
@@ -81,12 +83,7 @@ class DayOfYearWidgetConfigureActivity : Activity() {
             return
         }
 
-        widgetParameters = WidgetParameters(
-            R.drawable.widget_background_circle,
-            getColor(R.color.widgetBackground),
-            ApplicationConstants.OPACITY_MAX_VALUE,
-            getColor(R.color.primary)
-        )
+        model = ViewModelProvider(this).get(WidgetParametersViewModel::class.java)
 
         initToolbar()
         initElements()
@@ -104,10 +101,10 @@ class DayOfYearWidgetConfigureActivity : Activity() {
                 .apply()
             if (!isDefaultTheme) {
                 sharedPreferences.edit()
-                    .putInt("${appWidgetId}_form", widgetParameters.form)
-                    .putInt("${appWidgetId}_background_color", widgetParameters.backgroundColor)
-                    .putInt("${appWidgetId}_opacity", widgetParameters.opacity)
-                    .putInt("${appWidgetId}_text_color", widgetParameters.textColor)
+                    .putInt("${appWidgetId}_form", model.form)
+                    .putInt("${appWidgetId}_background_color", model.backgroundColor)
+                    .putInt("${appWidgetId}_opacity", model.opacity)
+                    .putInt("${appWidgetId}_text_color", model.textColor)
                     .apply()
             }
 
@@ -125,7 +122,7 @@ class DayOfYearWidgetConfigureActivity : Activity() {
 
     private fun initElements() {
         viewBinding.dayPreviewText.text = GregorianCalendar.getInstance().get(Calendar.DAY_OF_YEAR).toString()
-        viewBinding.customizationForm.visibility = View.GONE
+        viewBinding.customizationForm.visibility = if (viewBinding.themeSwitch.isChecked) View.GONE else View.VISIBLE
 
         viewBinding.themeSwitch.setOnCheckedChangeListener { _, isChecked ->
             viewBinding.customizationForm.visibility = if (!isChecked) View.VISIBLE else View.GONE
@@ -142,6 +139,42 @@ class DayOfYearWidgetConfigureActivity : Activity() {
             isDefaultTheme = isChecked
         }
 
+        // Widget preview initialization
+        viewBinding.widgetPreview.setColorFilter(model.backgroundColor)
+        viewBinding.dayPreviewText.setTextColor(model.textColor)
+        viewBinding.widgetPreview.imageAlpha = model.opacity
+        when(model.form) {
+            R.drawable.widget_background_circle -> {
+                viewBinding.widgetPreview.setImageResource(R.drawable.widget_background_circle)
+                viewBinding.circleForm.setColorFilter(getColor(R.color.primary))
+            }
+            R.drawable.widget_background_rectangle -> {
+                viewBinding.widgetPreview.setImageResource(R.drawable.widget_background_rectangle)
+                viewBinding.rectangleForm.setColorFilter(getColor(R.color.primary))
+            }
+            R.drawable.widget_background_squircle -> {
+                viewBinding.widgetPreview.setImageResource(R.drawable.widget_background_squircle)
+                viewBinding.squircleForm.setColorFilter(getColor(R.color.primary))
+            }
+        }
+        viewBinding.circleForm.setOnClickListener(onClickListener)
+        viewBinding.rectangleForm.setOnClickListener(onClickListener)
+        viewBinding.squircleForm.setOnClickListener(onClickListener)
+
+        // Opacity seek bar initialization
+        viewBinding.opacitySeekBar.progress = ApplicationConstants.OPACITY_MAX_VALUE - model.opacity
+        viewBinding.opacitySeekBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                viewBinding.widgetPreview.imageAlpha = ApplicationConstants.OPACITY_MAX_VALUE - progress
+                model.opacity = ApplicationConstants.OPACITY_MAX_VALUE - progress
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {}
+
+            override fun onStopTrackingTouch(seekBar: SeekBar) {}
+        })
+
+        // Color selector initialization
         val colors = resources.getIntArray(R.array.colors_picker_values)
         for (i in 0 until viewBinding.colorsGrid.size) {
             val imageView = viewBinding.colorsGrid[i] as ImageView
@@ -151,43 +184,12 @@ class DayOfYearWidgetConfigureActivity : Activity() {
                 val color = it.tag as Int
                 if (viewBinding.backgroundRadioButton.isChecked) {
                     viewBinding.widgetPreview.setColorFilter(color)
-                    widgetParameters.backgroundColor = color
+                    model.backgroundColor = color
                 } else {
                     viewBinding.dayPreviewText.setTextColor(color)
-                    widgetParameters.textColor = color
+                    model.textColor = color
                 }
             }
         }
-
-        viewBinding.circleForm.setColorFilter(getColor(R.color.primary))
-        viewBinding.circleForm.setOnClickListener(onClickListener)
-
-        viewBinding.rectangleForm.setOnClickListener(onClickListener)
-
-        viewBinding.squircleForm.setOnClickListener(onClickListener)
-
-        viewBinding.opacitySeekBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                viewBinding.widgetPreview.imageAlpha = ApplicationConstants.OPACITY_MAX_VALUE - progress
-                widgetParameters.opacity = ApplicationConstants.OPACITY_MAX_VALUE - progress
-            }
-
-            override fun onStartTrackingTouch(seekBar: SeekBar) {}
-
-            override fun onStopTrackingTouch(seekBar: SeekBar) {}
-        })
     }
 }
-
-/**
- * Model for storing widget configuration parameters
- *
- * @author Siarhei Liauko
- * @since 1.0.0
- */
-data class WidgetParameters(
-    var form: Int,
-    var backgroundColor: Int,
-    var opacity: Int,
-    var textColor: Int
-)
