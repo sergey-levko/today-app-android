@@ -9,6 +9,8 @@ import android.graphics.Rect
 import android.graphics.drawable.Icon
 import android.os.Build
 import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import by.liauko.siarhei.app.today.ApplicationConstants
 import by.liauko.siarhei.app.today.R
 import java.util.Calendar
 import java.util.GregorianCalendar
@@ -64,5 +66,26 @@ object NotificationUtil {
         canvas.drawText(text, textBounds.width() / 2f + 5, 85f, paint)
 
         return bitmap
+    }
+
+    /**
+     * Update data of existing notification
+     *
+     * @param context application context
+     *
+     * @author Siarhei Liauko
+     * @since 1.0.3
+     */
+    fun updateNotification(context: Context) {
+        val notificationStatus = context.getSharedPreferences(
+            context.getString(R.string.shared_preferences_name),
+            Context.MODE_PRIVATE
+        ).getBoolean(context.getString(R.string.notification_status_key), false)
+
+        if (notificationStatus) {
+            val notification = createDayOfYearNotification(context)
+            NotificationManagerCompat.from(context)
+                .notify(ApplicationConstants.NOTIFICATION_ID, notification)
+        }
     }
 }

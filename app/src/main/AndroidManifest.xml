@@ -38,7 +38,7 @@
         </receiver>
         <receiver android:name=".receiver.DayOfYearUpdateReceiver" />
         <receiver
-            android:name=".receiver.AppUpdateAndDeviceBootReceiver"
+            android:name=".receiver.NotificationUpdateRequestReceiver"
             android:enabled="false"
             android:exported="true">
             <intent-filter>
