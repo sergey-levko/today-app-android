@@ -5,11 +5,13 @@
 
         <SwitchPreferenceCompat
             android:key="@string/total_days_key"
-            android:title="Show total year days" />
+            android:title="@string/total_days_switch_title"
+            android:summary="@string/total_days_switch_summary"/>
 
         <SwitchPreferenceCompat
             android:key="@string/status_bar_key"
-            android:title="Show day of the year in status bar" />
+            android:title="@string/notification_switch_title"
+            android:summary="@string/notification_switch_summary"/>
 
     </PreferenceCategory>
 

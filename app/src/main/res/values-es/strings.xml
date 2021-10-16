@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="today_is_text">Hoy es</string>
+    <string name="day_copied_toast_message">Se copió el día del año.</string>
+    <string name="settings_description">Ajustes</string>
+    <string name="settings_title">Ajustes</string>
+    <string name="app_preference_category_title">Solicitud</string>
+    <string name="total_days_switch_title">Número total de días</string>
+    <string name="total_days_switch_summary">Muestra los días totales del año</string>
+    <string name="notification_switch_title">Muestra la notificación</string>
+    <string name="notification_switch_summary">Muestra el día actual del año en la barra de estado</string>
+    <string name="about_preference_category_title">Sobre</string>
+    <string name="settings_preference_about_text">Aplicación desarrollada por Sergey Levko. Minsk, República de Bielorrusia.</string>
+    <string name="settings_preference_version_title">Versión</string>
+
+    <string name="notification_text">Hoy es el día %d del año.</string>
+
+    <string name="cancel">Cancelar</string>
+    <string name="navigation_back_button_description">Atrás</string>
+
+    <string name="widget_configuration_title">Configuración de widgets</string>
+    <string name="widget_configuration_menu_confirm">Confirmar</string>
+    <string name="widget_configuration_preview">Avance</string>
+    <string name="widget_configuration_preview_description">Imagen de vista previa</string>
+    <string name="widget_configuration_default_theme_switch">Usar tema predeterminado</string>
+    <string name="widget_configuration_form_selector">Selector de formulario</string>
+    <string name="widget_configuration_circle_form_description">Circulo</string>
+    <string name="widget_configuration_rectangle_form_description">Rectángulo</string>
+    <string name="widget_configuration_squircle_form_description">Cuadrado redondeado</string>
+    <string name="widget_configuration_background_opacity">Opacidad de fondo</string>
+    <string name="widget_configuration_color_selector">Selector de color</string>
+    <string name="widget_configuration_background_radio_button">Fondo</string>
+    <string name="widget_configuration_text_radio_button">Texto</string>
+</resources>
