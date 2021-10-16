@@ -9,7 +9,7 @@ import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import androidx.core.content.ContextCompat
 import by.liauko.siarhei.app.today.R
-import by.liauko.siarhei.app.today.receiver.AppUpdateAndDeviceBootReceiver
+import by.liauko.siarhei.app.today.receiver.NotificationUpdateRequestReceiver
 import by.liauko.siarhei.app.today.receiver.DayOfYearUpdateReceiver
 import by.liauko.siarhei.app.today.receiver.LocaleChangedReceiver
 import by.liauko.siarhei.app.today.util.AlarmUtil
@@ -79,7 +79,7 @@ class ApplicationToolsStatusService(private val context: Context) {
 
     private fun updateReceiversState(enable: Boolean) {
         context.packageManager.setComponentEnabledSetting(
-            ComponentName(context, AppUpdateAndDeviceBootReceiver::class.java),
+            ComponentName(context, NotificationUpdateRequestReceiver::class.java),
             if (enable) PackageManager.COMPONENT_ENABLED_STATE_ENABLED
             else PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
             PackageManager.DONT_KILL_APP
