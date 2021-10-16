@@ -7,6 +7,10 @@
 
     <string name="settings_title">Настройки</string>
     <string name="app_preference_category_title">Приложение</string>
+    <string name="total_days_switch_title">Общее число дней</string>
+    <string name="total_days_switch_summary">Показывать общее число дней в году</string>
+    <string name="notification_switch_title">Показывать уведомление</string>
+    <string name="notification_switch_summary">Показывать текущий день года в статус баре</string>
     <string name="about_preference_category_title">О приложении</string>
     <string name="settings_preference_about_text">Приложение создано Сергеем Левко. Минск, Беларусь.</string>
     <string name="settings_preference_version_title">Версия</string>
@@ -16,10 +20,11 @@
     <string name="cancel">Отмена</string>
     <string name="navigation_back_button_description">Назад</string>
 
+    <string name="widget_configuration_title">Настройка виджета</string>
     <string name="widget_configuration_menu_confirm">Подтвердить</string>
     <string name="widget_configuration_preview">Предпросмотр</string>
-    <string name="widget_configuration_preview_description">Пример</string>
-    <string name="widget_configuration_default_theme_switch">Использовать стандартную тему</string>
+    <string name="widget_configuration_preview_description">Предпросмотр виджета</string>
+    <string name="widget_configuration_default_theme_switch">Стандартная тема</string>
     <string name="widget_configuration_form_selector">Выбор формы</string>
     <string name="widget_configuration_circle_form_description">Круг</string>
     <string name="widget_configuration_rectangle_form_description">Квадрат</string>

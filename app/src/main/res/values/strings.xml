@@ -9,6 +9,10 @@
 
     <string name="settings_title">Settings</string>
     <string name="app_preference_category_title">Application</string>
+    <string name="total_days_switch_title">Total days number</string>
+    <string name="total_days_switch_summary">Show total year days</string>
+    <string name="notification_switch_title">Show notification</string>
+    <string name="notification_switch_summary">Show the current day of the year in status bar</string>
     <string name="about_preference_category_title">About</string>
     <string name="settings_preference_about_text">Application developed by Sergey Levko. Minsk, Republic of Belarus.</string>
     <string name="settings_preference_version_title">Version</string>
@@ -23,14 +27,15 @@
 
     <string name="widget_background_content_description" translatable="false">background</string>
 
+    <string name="widget_configuration_title">Widget configuration</string>
     <string name="widget_configuration_menu_confirm">Confirm</string>
     <string name="widget_configuration_preview">Preview</string>
-    <string name="widget_configuration_preview_description">Preview</string>
-    <string name="widget_configuration_default_theme_switch">Use default day/night theme</string>
+    <string name="widget_configuration_preview_description">Widget preview</string>
+    <string name="widget_configuration_default_theme_switch">Default theme</string>
     <string name="widget_configuration_form_selector">Form selector</string>
     <string name="widget_configuration_circle_form_description">Circle</string>
     <string name="widget_configuration_rectangle_form_description">Rectangle</string>
-    <string name="widget_configuration_squircle_form_description">Squircle</string>
+    <string name="widget_configuration_squircle_form_description">Rounded square</string>
     <string name="widget_configuration_background_opacity">Background opacity</string>
     <string name="widget_configuration_color_selector">Color selector</string>
     <string name="widget_configuration_background_radio_button">Background</string>

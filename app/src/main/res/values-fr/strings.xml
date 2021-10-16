@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="today_is_text">Nous sommes aujourd\'hui le</string>
+    <string name="day_copied_toast_message">Le jour de l\'année a été copié.</string>
+    <string name="settings_description">Paramètres</string>
+    <string name="settings_title">Paramètres</string>
+    <string name="app_preference_category_title">Application</string>
+    <string name="total_days_switch_title">Nombre total de jours</string>
+    <string name="total_days_switch_summary">Afficher le nombre total de jours de l\'année</string>
+    <string name="notification_switch_title">Montrer les notifications</string>
+    <string name="notification_switch_summary">Afficher le jour actuel de l\'année dans la barre d\'état</string>
+    <string name="about_preference_category_title">À propos de</string>
+    <string name="settings_preference_about_text">Application développée par Sergey Levko. Minsk, République de Biélorussie.</string>
+    <string name="settings_preference_version_title">Version</string>
+
+    <string name="notification_text">Aujourd\'hui, c\'est le %d jour de l\'année.</string>
+
+    <string name="cancel">Annuler</string>
+    <string name="navigation_back_button_description">Arrière</string>
+
+    <string name="widget_configuration_title">Configuration des widgets</string>
+    <string name="widget_configuration_menu_confirm">Confirmer</string>
+    <string name="widget_configuration_preview">Aperçu</string>
+    <string name="widget_configuration_preview_description">Aperçu des widgets</string>
+    <string name="widget_configuration_default_theme_switch">Thème par défaut</string>
+    <string name="widget_configuration_form_selector">Sélecteur de formulaire</string>
+    <string name="widget_configuration_circle_form_description">Cercle</string>
+    <string name="widget_configuration_rectangle_form_description">Rectangle</string>
+    <string name="widget_configuration_squircle_form_description">Carré arrondi</string>
+    <string name="widget_configuration_background_opacity">Opacité du fond</string>
+    <string name="widget_configuration_color_selector">Sélecteur de couleur</string>
+    <string name="widget_configuration_background_radio_button">Fond</string>
+    <string name="widget_configuration_text_radio_button">Texte</string>
+</resources>
