@@ -40,7 +40,7 @@ open class DayOfYearWidget : AppWidgetProvider() {
         for (appWidgetId in appWidgetIds) {
             context.getSharedPreferences(context.getString(R.string.widget_shared_preferences_name), Context.MODE_PRIVATE)
                 .edit()
-                .remove("${appWidgetId}_form")
+                .remove("${appWidgetId}_form_name")
                 .remove("${appWidgetId}_background_color")
                 .remove("${appWidgetId}_opacity")
                 .remove("${appWidgetId}_text_color")
@@ -98,9 +98,36 @@ internal fun updateAppWidget(
 
     // Construct the RemoteViews object
     val views = RemoteViews(context.packageName, R.layout.widget_day_of_year)
+
+    // BAD CODE
+    // WILL REMOVE IN 1.0.4
+    // ---
+    val resId = sharedPreferences.getInt("${appWidgetId}_form", -1)
+    if (ApplicationConstants.previousFormIds.contains(resId)) {
+        val name = when(ApplicationConstants.previousFormIds.indexOf(resId)) {
+            0 -> context.resources.getResourceEntryName(R.drawable.widget_background_circle)
+            1 -> context.resources.getResourceEntryName(R.drawable.widget_background_rectangle)
+            2 -> context.resources.getResourceEntryName(R.drawable.widget_background_squircle)
+            else -> context.resources.getResourceEntryName(R.drawable.widget_background_circle)
+        }
+
+        sharedPreferences.edit()
+            .putString("${appWidgetId}_form_name", name)
+            .remove("${appWidgetId}_form")
+            .apply()
+    }
+    // ---
+
     views.setImageViewResource(
         R.id.widget_background,
-        sharedPreferences.getInt("${appWidgetId}_form", R.drawable.widget_background_circle)
+        context.resources.getIdentifier(
+            sharedPreferences.getString(
+                "${appWidgetId}_form_name",
+                context.resources.getResourceEntryName(R.drawable.widget_background_circle)
+            ),
+            "drawable",
+            ApplicationConstants.APP_PACKAGE
+        )
     )
     views.setTextViewTextSize(R.id.widget_text, TypedValue.COMPLEX_UNIT_SP, textSize)
     views.setTextViewText(

@@ -40,21 +40,21 @@ class DayOfYearWidgetConfigureActivity : AppCompatActivity() {
                 viewBinding.circleForm.setColorFilter(getColor(R.color.onBackground))
                 (it as ImageView).setColorFilter(getColor(R.color.primary))
                 viewBinding.widgetPreview.setImageResource(R.drawable.widget_background_circle)
-                model.form = R.drawable.widget_background_circle
+                model.form = resources.getResourceEntryName(R.drawable.widget_background_circle)
             }
             R.id.rectangle_form -> {
                 viewBinding.circleForm.setColorFilter(getColor(R.color.onBackground))
                 viewBinding.squircleForm.setColorFilter(getColor(R.color.onBackground))
                 (it as ImageView).setColorFilter(getColor(R.color.primary))
                 viewBinding.widgetPreview.setImageResource(R.drawable.widget_background_rectangle)
-                model.form = R.drawable.widget_background_rectangle
+                model.form = resources.getResourceEntryName(R.drawable.widget_background_rectangle)
             }
             R.id.squircle_form -> {
                 viewBinding.circleForm.setColorFilter(getColor(R.color.onBackground))
                 viewBinding.rectangleForm.setColorFilter(getColor(R.color.onBackground))
                 (it as ImageView).setColorFilter(getColor(R.color.primary))
                 viewBinding.widgetPreview.setImageResource(R.drawable.widget_background_squircle)
-                model.form = R.drawable.widget_background_squircle
+                model.form = resources.getResourceEntryName(R.drawable.widget_background_squircle)
             }
         }
     }
@@ -101,7 +101,7 @@ class DayOfYearWidgetConfigureActivity : AppCompatActivity() {
                 .apply()
             if (!isDefaultTheme) {
                 sharedPreferences.edit()
-                    .putInt("${appWidgetId}_form", model.form)
+                    .putString("${appWidgetId}_form_name", model.form)
                     .putInt("${appWidgetId}_background_color", model.backgroundColor)
                     .putInt("${appWidgetId}_opacity", model.opacity)
                     .putInt("${appWidgetId}_text_color", model.textColor)
@@ -144,15 +144,15 @@ class DayOfYearWidgetConfigureActivity : AppCompatActivity() {
         viewBinding.dayPreviewText.setTextColor(model.textColor)
         viewBinding.widgetPreview.imageAlpha = model.opacity
         when(model.form) {
-            R.drawable.widget_background_circle -> {
+            resources.getResourceEntryName(R.drawable.widget_background_circle) -> {
                 viewBinding.widgetPreview.setImageResource(R.drawable.widget_background_circle)
                 viewBinding.circleForm.setColorFilter(getColor(R.color.primary))
             }
-            R.drawable.widget_background_rectangle -> {
+            resources.getResourceEntryName(R.drawable.widget_background_rectangle) -> {
                 viewBinding.widgetPreview.setImageResource(R.drawable.widget_background_rectangle)
                 viewBinding.rectangleForm.setColorFilter(getColor(R.color.primary))
             }
-            R.drawable.widget_background_squircle -> {
+            resources.getResourceEntryName(R.drawable.widget_background_squircle) -> {
                 viewBinding.widgetPreview.setImageResource(R.drawable.widget_background_squircle)
                 viewBinding.squircleForm.setColorFilter(getColor(R.color.primary))
             }

@@ -12,8 +12,10 @@ import by.liauko.siarhei.app.today.R
  * @since 1.0.3
  */
 class WidgetParametersViewModel(application: Application) : AndroidViewModel(application) {
-    var form: Int = R.drawable.widget_background_circle
-    var backgroundColor: Int = getApplication<Application>().applicationContext.getColor(R.color.widgetBackground)
+    var form: String =
+        getApplication<Application>().applicationContext.resources.getResourceEntryName(R.drawable.widget_background_circle)
+    var backgroundColor: Int =
+        getApplication<Application>().applicationContext.getColor(R.color.widgetBackground)
     var opacity: Int = ApplicationConstants.OPACITY_MAX_VALUE
     var textColor: Int = getApplication<Application>().applicationContext.getColor(R.color.primary)
 }
