@@ -39,7 +39,6 @@
         <receiver android:name=".receiver.DayOfYearUpdateReceiver" />
         <receiver
             android:name=".receiver.NotificationUpdateRequestReceiver"
-            android:enabled="false"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -48,7 +47,6 @@
         </receiver>
         <receiver
             android:name=".receiver.LocaleChangedReceiver"
-            android:enabled="false"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.LOCALE_CHANGED" />

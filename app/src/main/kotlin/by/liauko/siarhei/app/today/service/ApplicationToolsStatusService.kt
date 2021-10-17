@@ -42,7 +42,6 @@ class ApplicationToolsStatusService(private val context: Context) {
     fun updateNotificationStatus(status: Boolean) {
         val widgetStatus = sharedPreferences.getBoolean(context.getString(R.string.widget_status_key), false)
         sharedPreferences.edit().putBoolean(context.getString(R.string.notification_status_key), status).apply()
-        updateReceiversState(status)
         if (status) {
             ContextCompat.startForegroundService(context, Intent(context, DayOfYearForegroundService::class.java))
             if (!widgetStatus) {
@@ -67,7 +66,6 @@ class ApplicationToolsStatusService(private val context: Context) {
     fun updateWidgetStatus(status: Boolean) {
         val notificationStatus = sharedPreferences.getBoolean(context.getString(R.string.notification_status_key), false)
         sharedPreferences.edit().putBoolean(context.getString(R.string.widget_status_key), status).apply()
-        updateReceiversState(status)
         if (!notificationStatus) {
             if (status) {
                 AlarmUtil.setMidnightAlarm(alarmManager, alarmIntent)
@@ -75,20 +73,5 @@ class ApplicationToolsStatusService(private val context: Context) {
                 alarmManager.cancel(alarmIntent)
             }
         }
-    }
-
-    private fun updateReceiversState(enable: Boolean) {
-        context.packageManager.setComponentEnabledSetting(
-            ComponentName(context, NotificationUpdateRequestReceiver::class.java),
-            if (enable) PackageManager.COMPONENT_ENABLED_STATE_ENABLED
-            else PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-            PackageManager.DONT_KILL_APP
-        )
-        context.packageManager.setComponentEnabledSetting(
-            ComponentName(context, LocaleChangedReceiver::class.java),
-            if (enable) PackageManager.COMPONENT_ENABLED_STATE_ENABLED
-            else PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-            PackageManager.DONT_KILL_APP
-        )
     }
 }
