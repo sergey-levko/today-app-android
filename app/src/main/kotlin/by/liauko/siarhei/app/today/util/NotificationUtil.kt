@@ -35,19 +35,38 @@ object NotificationUtil {
         val currentDay = GregorianCalendar.getInstance().get(Calendar.DAY_OF_YEAR)
         val bitmap = createBitmapFromText(currentDay.toString())
 
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    val builder = Notification.Builder(context, context.getString(R.string.notification_channel_id))
-                            .setSmallIcon(Icon.createWithBitmap(bitmap))
-                            .setContentTitle(context.getString(R.string.notification_text, currentDay))
-                    builder.build()
+        return when {
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+                Notification.Builder(
+                    context,
+                    context.getString(R.string.notification_channel_id)
+                )
+                    .setSmallIcon(Icon.createWithBitmap(bitmap))
+                    .setContentTitle(context.getString(R.string.notification_text, currentDay))
+                    .setForegroundServiceBehavior(Notification.FOREGROUND_SERVICE_IMMEDIATE)
+                    .build()
+            }
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
+                Notification.Builder(
+                    context,
+                    context.getString(R.string.notification_channel_id)
+                )
+                    .setSmallIcon(Icon.createWithBitmap(bitmap))
+                    .setContentTitle(context.getString(R.string.notification_text, currentDay))
+                    .build()
 
-                } else {
-                    val builder = NotificationCompat.Builder(context, context.getString(R.string.notification_channel_id))
-                            .setSmallIcon(R.drawable.ic_action_name)
-                            .setContentTitle(context.getString(R.string.notification_text, currentDay))
-                            .setPriority(NotificationCompat.PRIORITY_HIGH)
-                    builder.build()
-                }
+            }
+            else -> {
+                NotificationCompat.Builder(
+                    context,
+                    context.getString(R.string.notification_channel_id)
+                )
+                    .setSmallIcon(R.drawable.ic_action_name)
+                    .setContentTitle(context.getString(R.string.notification_text, currentDay))
+                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                    .build()
+            }
+        }
     }
 
     private fun createBitmapFromText(text: String): Bitmap {
