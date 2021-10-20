@@ -42,20 +42,22 @@
 
     <ProgressBar
         android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
+        android:progress="90"
+        style="@style/Theme.App.ProgressBar"
         android:progressDrawable="@drawable/progress_bar_circle"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/settings_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/settings"
-        android:contentDescription="@string/settings_description"
+        app:icon="@drawable/settings"
+        android:text="@string/settings_description"
         android:layout_marginBottom="@dimen/fab_margin"
         android:layout_marginEnd="@dimen/fab_margin"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        style="@style/Theme.App.FloatingActionButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
