@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#c62828</color>
-    <color name="primaryDark">#eaeaea</color>
-    <color name="primaryContainer">#eaa19c</color>
-    <color name="onPrimaryContainer">#ab000d</color>
-    <color name="secondary">#c62828</color>
-    <color name="background">#fafafa</color>
-    <color name="surface">#f2f2f2</color>
-    <color name="error">#b00020</color>
+    <color name="primary">#405742</color>
+    <color name="primaryDark">#EAEAEA</color>
+    <color name="primaryContainer">#ABBD9A</color>
+    <color name="onPrimaryContainer">#405742</color>
+    <color name="secondary">#405742</color>
+    <color name="secondaryContainer">#405742</color>
+    <color name="onSecondaryContainer">#CED2BA</color>
+    <color name="background">#FAFAFA</color>
+    <color name="surface">#F2F2F2</color>
+    <color name="error">#B00020</color>
     <color name="onPrimary">#121212</color>
-    <color name="onSecondary">#fafafa</color>
+    <color name="onSecondary">#FAFAFA</color>
     <color name="onBackground">#121212</color>
     <color name="onSurface">#121212</color>
-    <color name="onError">#fafafa</color>
+    <color name="onError">#FAFAFA</color>
 
-    <color name="toolbarPrimary">#fafafa</color>
+    <color name="toolbarPrimary">#FAFAFA</color>
 
-    <color name="widgetBackground">#fafafa</color>
+    <color name="widgetBackground">#FAFAFA</color>
 
-    <color name="launchScreenBackground">#ab000d</color>
-    <color name="launchScreenAppLogo">#fafafa</color>
-    <color name="launchScreenCompanyLogo">#ff5131</color>
+    <color name="launchScreenBackground">#405742</color>
+    <color name="launchScreenAppLogo">#CED2BA</color>
 
-    <color name="widgetConfigBackground">#888</color>
+    <color name="widgetConfigBackground">#E2E2E2</color>
+    <color name="widgetConfigFormsDisabled">#E2E2E2</color>
 </resources>

@@ -1,10 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.App" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.App" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryContainer">@color/primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/onPrimaryContainer</item>
         <item name="colorPrimaryDark">@color/toolbarPrimary</item>
         <item name="colorPrimaryVariant">@color/primaryDark</item>
         <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryContainer">@color/secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/onSecondaryContainer</item>
         <item name="android:colorBackground">@color/background</item>
         <item name="colorSurface">@color/surface</item>
         <item name="colorError">@color/error</item>
@@ -22,4 +27,6 @@
 
         <item name="postSplashScreenTheme">@style/Theme.App</item>
     </style>
+
+    <style name="Theme.App.FloatingActionButton" parent="Widget.Material3.ExtendedFloatingActionButton.Icon.Secondary" />
 </resources>
