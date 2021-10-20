@@ -42,7 +42,6 @@
 
     <ProgressBar
         android:id="@+id/progressBar"
-        android:progress="90"
         style="@style/Theme.App.ProgressBar"
         android:progressDrawable="@drawable/progress_bar_circle"
         android:layout_width="match_parent"
