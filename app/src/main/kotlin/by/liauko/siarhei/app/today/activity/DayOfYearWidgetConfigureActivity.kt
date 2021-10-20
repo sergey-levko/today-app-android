@@ -36,22 +36,22 @@ class DayOfYearWidgetConfigureActivity : AppCompatActivity() {
     private var onClickListener = View.OnClickListener {
         when (it.id) {
             R.id.circle_form -> {
-                viewBinding.rectangleForm.setColorFilter(getColor(R.color.onBackground))
-                viewBinding.circleForm.setColorFilter(getColor(R.color.onBackground))
+                viewBinding.rectangleForm.setColorFilter(getColor(R.color.widgetConfigFormsDisabled))
+                viewBinding.squircleForm.setColorFilter(getColor(R.color.widgetConfigFormsDisabled))
                 (it as ImageView).setColorFilter(getColor(R.color.primary))
                 viewBinding.widgetPreview.setImageResource(R.drawable.widget_background_circle)
                 model.form = resources.getResourceEntryName(R.drawable.widget_background_circle)
             }
             R.id.rectangle_form -> {
-                viewBinding.circleForm.setColorFilter(getColor(R.color.onBackground))
-                viewBinding.squircleForm.setColorFilter(getColor(R.color.onBackground))
+                viewBinding.circleForm.setColorFilter(getColor(R.color.widgetConfigFormsDisabled))
+                viewBinding.squircleForm.setColorFilter(getColor(R.color.widgetConfigFormsDisabled))
                 (it as ImageView).setColorFilter(getColor(R.color.primary))
                 viewBinding.widgetPreview.setImageResource(R.drawable.widget_background_rectangle)
                 model.form = resources.getResourceEntryName(R.drawable.widget_background_rectangle)
             }
             R.id.squircle_form -> {
-                viewBinding.circleForm.setColorFilter(getColor(R.color.onBackground))
-                viewBinding.rectangleForm.setColorFilter(getColor(R.color.onBackground))
+                viewBinding.circleForm.setColorFilter(getColor(R.color.widgetConfigFormsDisabled))
+                viewBinding.rectangleForm.setColorFilter(getColor(R.color.widgetConfigFormsDisabled))
                 (it as ImageView).setColorFilter(getColor(R.color.primary))
                 viewBinding.widgetPreview.setImageResource(R.drawable.widget_background_squircle)
                 model.form = resources.getResourceEntryName(R.drawable.widget_background_squircle)
@@ -132,8 +132,8 @@ class DayOfYearWidgetConfigureActivity : AppCompatActivity() {
                 viewBinding.widgetPreview.setColorFilter(getColor(R.color.widgetBackground))
                 viewBinding.dayPreviewText.setTextColor(getColor(R.color.primary))
                 viewBinding.circleForm.setColorFilter(getColor(R.color.primary))
-                viewBinding.rectangleForm.setColorFilter(getColor(R.color.onBackground))
-                viewBinding.squircleForm.setColorFilter(getColor(R.color.onBackground))
+                viewBinding.rectangleForm.setColorFilter(getColor(R.color.widgetConfigFormsDisabled))
+                viewBinding.squircleForm.setColorFilter(getColor(R.color.widgetConfigFormsDisabled))
             }
 
             isDefaultTheme = isChecked
