@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="settings_margin_bottom">16dp</dimen>
-    <dimen name="toolbar_elevation">4dp</dimen>
     <dimen name="toolbar_margin_bottom">8dp</dimen>
     <dimen name="fab_margin">24dp</dimen>
     <dimen name="day_text_size">48sp</dimen>

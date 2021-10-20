@@ -2,7 +2,7 @@
 <shape
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval">
-    <solid android:color="@color/onBackground" />
+    <solid android:color="@color/widgetConfigFormsDisabled" />
     <size
         android:width="64dp"
         android:height="64dp" />
