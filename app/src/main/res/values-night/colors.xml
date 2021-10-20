@@ -23,5 +23,6 @@
     <color name="launchScreenBackground">#202020</color>
     <color name="launchScreenAppLogo">#ABBD9A</color>
 
-    <color name="widgetConfigBackground">#272727</color>
+    <color name="widgetConfigBackground">#3A3A3A</color>
+    <color name="widgetConfigFormsDisabled">#3A3A3A</color>
 </resources>

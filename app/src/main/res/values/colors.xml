@@ -23,5 +23,6 @@
     <color name="launchScreenBackground">#405742</color>
     <color name="launchScreenAppLogo">#CED2BA</color>
 
-    <color name="widgetConfigBackground">#EAEAEA</color>
+    <color name="widgetConfigBackground">#E2E2E2</color>
+    <color name="widgetConfigFormsDisabled">#E2E2E2</color>
 </resources>
