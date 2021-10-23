@@ -25,14 +25,14 @@ object ApplicationConstants {
     /**
      * Application package
      *
-     * @since 1.0.3
+     * @since 1.1.4
      */
     const val APP_PACKAGE = "by.liauko.siarhei.app.today"
 
     /**
      * List of system actions for which notification update required
      *
-     * @since 1.0.3
+     * @since 1.1.4
      */
     val notificationUpdateRequiredActions = listOf(
         "android.intent.action.BOOT_COMPLETED",
@@ -44,7 +44,7 @@ object ApplicationConstants {
      *
      * WILL REMOVE IN VERSION 1.0.4
      *
-     * @since 1.0.3
+     * @since 1.1.4
      */
     val previousFormIds = listOf(2131230883, 2131230884, 2131230885)
 }

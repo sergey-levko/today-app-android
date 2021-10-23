@@ -21,8 +21,6 @@
 
     <string name="notification_text">Today is %d day of the year</string>
 
-    <string name="ok" translatable="false">OK</string>
-    <string name="cancel">Cancel</string>
     <string name="navigation_back_button_description">Back</string>
 
     <string name="widget_background_content_description" translatable="false">background</string>
@@ -46,7 +44,6 @@
     <string name="total_days_key" translatable="false">total_days_switcher</string>
     <string name="status_bar_key" translatable="false">status_bar_switcher</string>
     <string name="notification_channel_id" translatable="false">4fcec4ec-a165-4b12-ba4e-de495165d140</string>
-    <string name="notification_id_key" translatable="false">notification_id_key</string>
     <string name="notification_status_key" translatable="false">is_notification_shown</string>
     <string name="widget_status_key" translatable="false">is_widget_shown</string>
 

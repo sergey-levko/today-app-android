@@ -15,7 +15,6 @@
 
     <string name="notification_text">Täna on aasta %d päev.</string>
 
-    <string name="cancel">Tühista</string>
     <string name="navigation_back_button_description">Tagasi</string>
 
     <string name="widget_configuration_title">Vidina konfiguratsioon</string>

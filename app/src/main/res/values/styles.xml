@@ -28,4 +28,6 @@
     </style>
 
     <style name="Theme.App.FloatingActionButton" parent="Widget.MaterialComponents.ExtendedFloatingActionButton.Icon" />
+
+    <style name="Theme.App.Toolbar" parent="Widget.MaterialComponents.Toolbar.Surface" />
 </resources>

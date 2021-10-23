@@ -9,7 +9,7 @@ import by.liauko.siarhei.app.today.R
  * View model storing widget configuration parameters
  *
  * @author Siarhei Liauko
- * @since 1.0.3
+ * @since 1.1.4
  */
 class WidgetParametersViewModel(application: Application) : AndroidViewModel(application) {
     var form: String =

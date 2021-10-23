@@ -15,7 +15,6 @@
 
     <string name="notification_text">Dziś jest %d dzień roku</string>
 
-    <string name="cancel">Anulować</string>
     <string name="navigation_back_button_description">Plecy</string>
 
     <string name="widget_configuration_title">Konfiguracja widżetu</string>
