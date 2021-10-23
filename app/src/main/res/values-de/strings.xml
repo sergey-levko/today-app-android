@@ -15,7 +15,6 @@
 
     <string name="notification_text">Heute ist der %d. Tag des Jahres</string>
 
-    <string name="cancel">Abbrechen</string>
     <string name="navigation_back_button_description">Zurück</string>
 
     <string name="widget_configuration_title">Widget-Konfiguration</string>

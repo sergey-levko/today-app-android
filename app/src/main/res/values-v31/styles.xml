@@ -29,4 +29,6 @@
     </style>
 
     <style name="Theme.App.FloatingActionButton" parent="Widget.Material3.ExtendedFloatingActionButton.Icon.Secondary" />
+
+    <style name="Theme.App.Toolbar" parent="Widget.Material3.Toolbar.Surface" />
 </resources>

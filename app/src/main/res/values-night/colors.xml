@@ -8,7 +8,7 @@
     <color name="secondaryContainer">#ABBD9A</color>
     <color name="onSecondaryContainer">#405742</color>
     <color name="background">#202020</color>
-    <color name="surface">#1F1F1F</color>
+    <color name="surface">#202020</color>
     <color name="error">#ABBD9A</color>
     <color name="onPrimary">#FAFAFA</color>
     <color name="onSecondary">#121212</color>
