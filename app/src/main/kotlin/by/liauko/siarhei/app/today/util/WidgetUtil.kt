@@ -12,7 +12,7 @@ import by.liauko.siarhei.app.today.widget.DayOfYearWidget
  * Utility class containing methods managing application widgets
  *
  * @author Siarhei Liauko
- * @since 1.0.3
+ * @since 1.1.4
  */
 object WidgetUtil {
 
@@ -22,7 +22,7 @@ object WidgetUtil {
      * @param context application context
      *
      * @author Siarhei Liauko
-     * @since 1.0.3
+     * @since 1.1.4
      */
     fun updateWidgets(context: Context) {
         val widgetStatus = context.getSharedPreferences(

@@ -9,7 +9,7 @@ import by.liauko.siarhei.app.today.util.NotificationUtil
  * Class handling case when device locale has been changed
  *
  * @author Siarhei Liauko
- * @since 1.0.3
+ * @since 1.1.4
  */
 class LocaleChangedReceiver : BroadcastReceiver() {
 
