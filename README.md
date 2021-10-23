@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/sergey-levv/today-app-android/blob/master/github-resources/feature_graphics.png" alt="app_icon" />
+  <img src="https://github.com/sergey-levv/today-app-android/blob/master/github-resources/feature_graphics.png" alt="feature_graphics" />
 </p>
 
 <p align="center">
