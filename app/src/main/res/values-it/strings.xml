@@ -15,7 +15,6 @@
 
     <string name="notification_text">Oggi è il %d giorno dell\'anno.</string>
 
-    <string name="cancel">Annulla</string>
     <string name="navigation_back_button_description">Di ritorno</string>
 
     <string name="widget_configuration_title">Configurazione del widget</string>

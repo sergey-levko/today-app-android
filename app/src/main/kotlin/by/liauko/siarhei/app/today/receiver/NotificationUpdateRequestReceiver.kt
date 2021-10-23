@@ -17,7 +17,7 @@ class NotificationUpdateRequestReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         if (ApplicationConstants.notificationUpdateRequiredActions.contains(intent.action)) {
-            NotificationUtil.updateNotification(context)
+            NotificationUtil.restartNotification(context)
             AlarmUtil.setMidnightAlarm(context)
         }
     }

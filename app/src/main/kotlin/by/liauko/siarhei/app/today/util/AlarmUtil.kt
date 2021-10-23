@@ -47,7 +47,7 @@ object AlarmUtil {
      * @param context application context
      *
      * @author Siarhei Liauko
-     * @since 1.0.3
+     * @since 1.1.4
      */
     fun setMidnightAlarm(context: Context) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
