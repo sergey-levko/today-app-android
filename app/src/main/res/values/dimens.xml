@@ -7,6 +7,7 @@
     <dimen name="text_margin_top_land">24dp</dimen>
     <dimen name="text_margin_bottom_land">48dp</dimen>
     <dimen name="progress_bar_horizontal_margin_land">128dp</dimen>
+    <dimen name="layout_land_margin_top">56dp</dimen>
 
     <!-- Dimens for widget configuration layout -->
     <dimen name="widget_config_margin">8dp</dimen>

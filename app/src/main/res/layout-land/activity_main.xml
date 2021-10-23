@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center_vertical">
+        android:layout_marginTop="@dimen/layout_land_margin_top">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -52,14 +52,15 @@
             android:layout_marginHorizontal="@dimen/progress_bar_horizontal_margin_land" />
     </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/settings_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/settings"
-        android:contentDescription="@string/settings_description"
+        app:icon="@drawable/settings"
+        android:text="@string/settings_description"
         android:layout_marginBottom="@dimen/fab_margin"
         android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_gravity="end|bottom" />
+        android:layout_gravity="end|bottom"
+        style="@style/Theme.App.FloatingActionButton" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
