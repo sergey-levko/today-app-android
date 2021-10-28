@@ -1,9 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">Today</string>
 
-    <string name="launch_screen_app_logo_content" translatable="false">app_logo</string>
-    <string name="launch_screen_company_logo_content" translatable="false">company_logo</string>
-
     <string name="today_is_text">Today is</string>
     <string name="clipboard_day_of_year_label" translatable="false">current_day_of_the_year</string>
     <string name="day_copied_toast_message">Day of the year was copied</string>
@@ -12,30 +9,31 @@
 
     <string name="settings_title">Settings</string>
     <string name="app_preference_category_title">Application</string>
+    <string name="total_days_switch_title">Total days number</string>
+    <string name="total_days_switch_summary">Show total year days</string>
+    <string name="notification_switch_title">Show notification</string>
+    <string name="notification_switch_summary">Show the current day of the year in status bar</string>
     <string name="about_preference_category_title">About</string>
     <string name="settings_preference_about_text">Application developed by Sergey Levko. Minsk, Republic of Belarus.</string>
     <string name="settings_preference_version_title">Version</string>
-    <string name="settings_preference_terms_title">Terms &amp; Conditions</string>
-    <string name="settings_preference_terms_url">https://www.gnu.org/licenses/gpl-3.0.en.html</string>
 
-    <string name="days_delimiter" translatable="false">/</string>
+    <string name="total_days_format" translatable="false">%d/%d</string>
 
-    <string name="today_is_notification_text">Today is</string>
-    <string name="day_of_year_notification_text">day of the year</string>
+    <string name="notification_text">Today is %d day of the year</string>
 
-    <string name="ok" translatable="false">OK</string>
-    <string name="cancel">Cancel</string>
+    <string name="navigation_back_button_description">Back</string>
 
     <string name="widget_background_content_description" translatable="false">background</string>
 
+    <string name="widget_configuration_title">Widget configuration</string>
     <string name="widget_configuration_menu_confirm">Confirm</string>
     <string name="widget_configuration_preview">Preview</string>
-    <string name="widget_configuration_preview_description" translatable="false">preview</string>
-    <string name="widget_configuration_default_theme_switch">Use default day/night theme</string>
+    <string name="widget_configuration_preview_description">Widget preview</string>
+    <string name="widget_configuration_default_theme_switch">Default theme</string>
     <string name="widget_configuration_form_selector">Form selector</string>
-    <string name="widget_configuration_circle_form_description" translatable="false">circle</string>
-    <string name="widget_configuration_rectangle_form_description" translatable="false">rectangle</string>
-    <string name="widget_configuration_squircle_form_description" translatable="false">squircle</string>
+    <string name="widget_configuration_circle_form_description">Circle</string>
+    <string name="widget_configuration_rectangle_form_description">Rectangle</string>
+    <string name="widget_configuration_squircle_form_description">Rounded square</string>
     <string name="widget_configuration_background_opacity">Background opacity</string>
     <string name="widget_configuration_color_selector">Color selector</string>
     <string name="widget_configuration_background_radio_button">Background</string>
@@ -46,7 +44,6 @@
     <string name="total_days_key" translatable="false">total_days_switcher</string>
     <string name="status_bar_key" translatable="false">status_bar_switcher</string>
     <string name="notification_channel_id" translatable="false">4fcec4ec-a165-4b12-ba4e-de495165d140</string>
-    <string name="notification_id_key" translatable="false">notification_id_key</string>
     <string name="notification_status_key" translatable="false">is_notification_shown</string>
     <string name="widget_status_key" translatable="false">is_widget_shown</string>
 
@@ -112,7 +109,7 @@
     <string name="color_53" translatable="false">#f1c232</string>
     <string name="color_54" translatable="false">#6aa84f</string>
     <string name="color_55" translatable="false">#45818e</string>
-    <string name="color_56" translatable="false">#45818e</string>
+    <string name="color_56" translatable="false">#3979d9</string>
     <string name="color_57" translatable="false">#3d85c6</string>
     <string name="color_58" translatable="false">#674ea7</string>
     <string name="color_59" translatable="false">#a64d79</string>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.App" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryContainer">@color/primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/onPrimaryContainer</item>
+        <item name="colorPrimaryDark">@color/toolbarPrimary</item>
+        <item name="colorPrimaryVariant">@color/primaryDark</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryContainer">@color/secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/onSecondaryContainer</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorError">@color/error</item>
+        <item name="colorOnPrimary">@color/onPrimary</item>
+        <item name="colorOnSecondary">@color/onSecondary</item>
+        <item name="colorOnBackground">@color/onBackground</item>
+        <item name="colorOnSurface">@color/onSurface</item>
+        <item name="colorOnError">@color/onError</item>
+        <item name="android:windowLightStatusBar">@bool/isLightStatusBar</item>
+    </style>
+
+    <style name="Theme.App.Starter" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/launchScreenBackground</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/app_logo</item>
+
+        <item name="postSplashScreenTheme">@style/Theme.App</item>
+    </style>
+
+    <style name="Theme.App.FloatingActionButton" parent="Widget.Material3.ExtendedFloatingActionButton.Icon.Secondary" />
+
+    <style name="Theme.App.Toolbar" parent="Widget.Material3.Toolbar.Surface" />
+</resources>

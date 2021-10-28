@@ -9,6 +9,9 @@ import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import androidx.core.content.ContextCompat
 import by.liauko.siarhei.app.today.R
+import by.liauko.siarhei.app.today.receiver.NotificationUpdateRequestReceiver
+import by.liauko.siarhei.app.today.receiver.DayOfYearUpdateReceiver
+import by.liauko.siarhei.app.today.receiver.LocaleChangedReceiver
 import by.liauko.siarhei.app.today.util.AlarmUtil
 
 /**
@@ -25,7 +28,7 @@ class ApplicationToolsStatusService(private val context: Context) {
     )
     private val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
     private val alarmIntent = Intent(context, DayOfYearUpdateReceiver::class.java).let {
-        PendingIntent.getBroadcast(context, 0, it, 0)
+        PendingIntent.getBroadcast(context, 0, it, PendingIntent.FLAG_IMMUTABLE)
     }
 
     /**
@@ -39,7 +42,6 @@ class ApplicationToolsStatusService(private val context: Context) {
     fun updateNotificationStatus(status: Boolean) {
         val widgetStatus = sharedPreferences.getBoolean(context.getString(R.string.widget_status_key), false)
         sharedPreferences.edit().putBoolean(context.getString(R.string.notification_status_key), status).apply()
-        updateDeviceBootReceiverState(status)
         if (status) {
             ContextCompat.startForegroundService(context, Intent(context, DayOfYearForegroundService::class.java))
             if (!widgetStatus) {
@@ -64,7 +66,6 @@ class ApplicationToolsStatusService(private val context: Context) {
     fun updateWidgetStatus(status: Boolean) {
         val notificationStatus = sharedPreferences.getBoolean(context.getString(R.string.notification_status_key), false)
         sharedPreferences.edit().putBoolean(context.getString(R.string.widget_status_key), status).apply()
-        updateDeviceBootReceiverState(status)
         if (!notificationStatus) {
             if (status) {
                 AlarmUtil.setMidnightAlarm(alarmManager, alarmIntent)
@@ -72,14 +73,5 @@ class ApplicationToolsStatusService(private val context: Context) {
                 alarmManager.cancel(alarmIntent)
             }
         }
-    }
-
-    private fun updateDeviceBootReceiverState(enable: Boolean) {
-        context.packageManager.setComponentEnabledSetting(
-            ComponentName(context, DeviceBootReceiver::class.java),
-            if (enable) PackageManager.COMPONENT_ENABLED_STATE_ENABLED
-            else PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-            PackageManager.DONT_KILL_APP
-        )
     }
 }

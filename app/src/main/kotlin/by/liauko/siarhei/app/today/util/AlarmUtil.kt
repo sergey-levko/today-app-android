@@ -2,6 +2,9 @@ package by.liauko.siarhei.app.today.util
 
 import android.app.AlarmManager
 import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
+import by.liauko.siarhei.app.today.receiver.DayOfYearUpdateReceiver
 import java.util.Calendar
 
 /**
@@ -36,5 +39,22 @@ object AlarmUtil {
             calendar.timeInMillis,
             alarmIntent
         )
+    }
+
+    /**
+     * Setting up alarm which will execute at midnight
+     *
+     * @param context application context
+     *
+     * @author Siarhei Liauko
+     * @since 1.1.4
+     */
+    fun setMidnightAlarm(context: Context) {
+        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val alarmIntent = Intent(context, DayOfYearUpdateReceiver::class.java).let {
+            PendingIntent.getBroadcast(context, 0, it, PendingIntent.FLAG_IMMUTABLE)
+        }
+
+        setMidnightAlarm(alarmManager, alarmIntent)
     }
 }

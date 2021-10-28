@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
     <application
         android:allowBackup="false"
@@ -12,8 +13,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppDefault">
-        <receiver android:name=".widget.DayOfYearWidget">
+        android:theme="@style/Theme.App">
+        <receiver
+            android:name=".widget.DayOfYearWidget"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -22,7 +25,9 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_info_day_of_year_1_1" />
         </receiver>
-        <receiver android:name=".widget.DayOfYearBigWidget">
+        <receiver
+            android:name=".widget.DayOfYearBigWidget"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -31,12 +36,20 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_info_day_of_year_2_2" />
         </receiver>
-        <receiver android:name=".service.DayOfYearUpdateReceiver" />
+        <receiver android:name=".receiver.DayOfYearUpdateReceiver" />
         <receiver
-            android:name=".service.DeviceBootReceiver"
-            android:enabled="false">
+            android:name=".receiver.NotificationUpdateRequestReceiver"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".receiver.LocaleChangedReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
             </intent-filter>
         </receiver>
 
@@ -44,22 +57,23 @@
             android:name=".service.DayOfYearForegroundService"
             android:enabled="true" />
 
-        <activity android:name=".activity.MainActivity">
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.App.Starter">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".activity.SettingsActivity" />
-        <activity android:name=".activity.DayOfYearWidgetConfigureActivity">
+        <activity
+            android:name=".activity.DayOfYearWidgetConfigureActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.LaunchScreenActivity"
-            android:theme="@style/LaunchScreen" />
     </application>
 
 </manifest>

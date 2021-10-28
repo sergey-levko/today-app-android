@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="today_is_text">Сёння</string>
+    <string name="day_copied_toast_message">Дзень года скапіяваны</string>
+    <string name="settings_description">Налады</string>
+    <string name="settings_title">Налады</string>
+    <string name="app_preference_category_title">Дадатак</string>
+    <string name="total_days_switch_title">Агульная колькасць дзён</string>
+    <string name="total_days_switch_summary">Паказваць агульны лік дзён у годзе</string>
+    <string name="notification_switch_title">Паказваць апавяшчэнне</string>
+    <string name="notification_switch_summary">Паказваць бягучы дзень года ў статус бары</string>
+    <string name="about_preference_category_title">Аб дадатку</string>
+    <string name="settings_preference_about_text">Прыкладанне створана Сяргеем Ляўко. Мінск, Беларусь.</string>
+    <string name="settings_preference_version_title">Версія</string>
+
+    <string name="notification_text">Сёння %d дзень года</string>
+
+    <string name="navigation_back_button_description">Назад</string>
+
+    <string name="widget_configuration_title">Налада фішкі</string>
+    <string name="widget_configuration_menu_confirm">Пацвердзіць</string>
+    <string name="widget_configuration_preview">Перадпаказ</string>
+    <string name="widget_configuration_preview_description">Прыклад фішкі</string>
+    <string name="widget_configuration_default_theme_switch">Стандартная тэма</string>
+    <string name="widget_configuration_form_selector">Выбар формы</string>
+    <string name="widget_configuration_circle_form_description">Круг</string>
+    <string name="widget_configuration_rectangle_form_description">Квадрат</string>
+    <string name="widget_configuration_squircle_form_description">Скругленая квадрат</string>
+    <string name="widget_configuration_background_opacity">Празрыстасць фону</string>
+    <string name="widget_configuration_color_selector">Выбар колеру</string>
+    <string name="widget_configuration_background_radio_button">Фон</string>
+    <string name="widget_configuration_text_radio_button">Тэкст</string>
+</resources>

@@ -2,6 +2,7 @@ package by.liauko.siarhei.app.today.util
 
 import android.app.Notification
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
@@ -9,7 +10,11 @@ import android.graphics.Rect
 import android.graphics.drawable.Icon
 import android.os.Build
 import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat
+import by.liauko.siarhei.app.today.ApplicationConstants
 import by.liauko.siarhei.app.today.R
+import by.liauko.siarhei.app.today.service.DayOfYearForegroundService
 import java.util.Calendar
 import java.util.GregorianCalendar
 
@@ -33,23 +38,38 @@ object NotificationUtil {
         val currentDay = GregorianCalendar.getInstance().get(Calendar.DAY_OF_YEAR)
         val bitmap = createBitmapFromText(currentDay.toString())
 
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    val builder = Notification.Builder(context, context.getString(R.string.notification_channel_id))
-                            .setSmallIcon(Icon.createWithBitmap(bitmap))
-                            .setContentTitle("""${context.getString(R.string.today_is_notification_text)} 
-                                |${currentDay} 
-                                |${context.getString(R.string.day_of_year_notification_text)}""".trimMargin())
-                    builder.build()
+        return when {
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+                Notification.Builder(
+                    context,
+                    context.getString(R.string.notification_channel_id)
+                )
+                    .setSmallIcon(Icon.createWithBitmap(bitmap))
+                    .setContentTitle(context.getString(R.string.notification_text, currentDay))
+                    .setForegroundServiceBehavior(Notification.FOREGROUND_SERVICE_IMMEDIATE)
+                    .build()
+            }
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
+                Notification.Builder(
+                    context,
+                    context.getString(R.string.notification_channel_id)
+                )
+                    .setSmallIcon(Icon.createWithBitmap(bitmap))
+                    .setContentTitle(context.getString(R.string.notification_text, currentDay))
+                    .build()
 
-                } else {
-                    val builder = NotificationCompat.Builder(context, context.getString(R.string.notification_channel_id))
-                            .setSmallIcon(R.drawable.ic_action_name)
-                            .setContentTitle("""${context.getString(R.string.today_is_notification_text)} 
-                                |${currentDay} 
-                                |${context.getString(R.string.day_of_year_notification_text)}""".trimMargin())
-                            .setPriority(NotificationCompat.PRIORITY_HIGH)
-                    builder.build()
-                }
+            }
+            else -> {
+                NotificationCompat.Builder(
+                    context,
+                    context.getString(R.string.notification_channel_id)
+                )
+                    .setSmallIcon(R.drawable.ic_action_name)
+                    .setContentTitle(context.getString(R.string.notification_text, currentDay))
+                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                    .build()
+            }
+        }
     }
 
     private fun createBitmapFromText(text: String): Bitmap {
@@ -68,5 +88,48 @@ object NotificationUtil {
         canvas.drawText(text, textBounds.width() / 2f + 5, 85f, paint)
 
         return bitmap
+    }
+
+    /**
+     * Update data of existing notification
+     *
+     * @param context application context
+     *
+     * @author Siarhei Liauko
+     * @since 1.1.4
+     */
+    fun updateNotification(context: Context) {
+        val notificationStatus = context.getSharedPreferences(
+            context.getString(R.string.shared_preferences_name),
+            Context.MODE_PRIVATE
+        ).getBoolean(context.getString(R.string.notification_status_key), false)
+
+        if (notificationStatus) {
+            val notification = createDayOfYearNotification(context)
+            NotificationManagerCompat.from(context)
+                .notify(ApplicationConstants.NOTIFICATION_ID, notification)
+        }
+    }
+
+    /**
+     * Restart existing notification
+     *
+     * @param context application context
+     *
+     * @author Siarhei Liauko
+     * @since 1.1.6
+     */
+    fun restartNotification(context: Context) {
+        val notificationStatus = context.getSharedPreferences(
+            context.getString(R.string.shared_preferences_name),
+            Context.MODE_PRIVATE
+        ).getBoolean(context.getString(R.string.notification_status_key), false)
+
+        if (notificationStatus) {
+            ContextCompat.startForegroundService(
+                context,
+                Intent(context, DayOfYearForegroundService::class.java)
+            )
+        }
     }
 }

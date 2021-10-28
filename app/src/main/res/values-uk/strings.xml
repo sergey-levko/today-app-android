@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="today_is_text">Сьогодні</string>
+    <string name="day_copied_toast_message">День року скопійований</string>
+    <string name="settings_description">Налаштування</string>
+    <string name="settings_title">Налаштування</string>
+    <string name="app_preference_category_title">Додаток</string>
+    <string name="total_days_switch_title">Загальна кількість днів</string>
+    <string name="total_days_switch_summary">Показувати загальне число днів в році</string>
+    <string name="notification_switch_title">Показувати сповіщення</string>
+    <string name="notification_switch_summary">Показувати поточний день року в статус барі</string>
+    <string name="about_preference_category_title">Про програму</string>
+    <string name="settings_preference_about_text">Додаток створено Сергієм Левко. Мінськ, Білорусь.</string>
+    <string name="settings_preference_version_title">Версія</string>
+
+    <string name="notification_text">Сьогодні %d день у році</string>
+
+    <string name="navigation_back_button_description">Назад</string>
+
+    <string name="widget_configuration_title">Налаштування віджета</string>
+    <string name="widget_configuration_menu_confirm">Підтвердити</string>
+    <string name="widget_configuration_preview">Попередній перегляд</string>
+    <string name="widget_configuration_preview_description">Приклад віджету</string>
+    <string name="widget_configuration_default_theme_switch">Стандартна тема.</string>
+    <string name="widget_configuration_form_selector">Вибір форми</string>
+    <string name="widget_configuration_circle_form_description">Коло</string>
+    <string name="widget_configuration_rectangle_form_description">Квадрат</string>
+    <string name="widget_configuration_squircle_form_description">Округлений квадрат</string>
+    <string name="widget_configuration_background_opacity">Прозорість фону</string>
+    <string name="widget_configuration_color_selector">Вибір кольору</string>
+    <string name="widget_configuration_background_radio_button">Фон</string>
+    <string name="widget_configuration_text_radio_button">Текст</string>
+</resources>

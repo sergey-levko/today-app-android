@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="today_is_text">Šiandien yra</string>
+    <string name="day_copied_toast_message">Metų diena buvo nukopijuota</string>
+    <string name="settings_description">Nustatymai</string>
+    <string name="settings_title">Nustatymai</string>
+    <string name="app_preference_category_title">Taikymas</string>
+    <string name="total_days_switch_title">Bendras dienų skaičius</string>
+    <string name="total_days_switch_summary">Rodyti bendras metų dienas</string>
+    <string name="notification_switch_title">Rodyti pranešimą</string>
+    <string name="notification_switch_summary">Būsenos juostoje rodyti esamą metų dieną</string>
+    <string name="about_preference_category_title">Apie</string>
+    <string name="settings_preference_about_text">Programą sukūrė Sergey Levko. Minskas, Baltarusijos Respublika.</string>
+    <string name="settings_preference_version_title">Versija</string>
+
+    <string name="notification_text">Šiandien yra %d metų diena</string>
+
+    <string name="navigation_back_button_description">Atgal</string>
+
+    <string name="widget_configuration_title">Valdiklio konfigūracija</string>
+    <string name="widget_configuration_menu_confirm">Patvirtinti</string>
+    <string name="widget_configuration_preview">Peržiūra</string>
+    <string name="widget_configuration_preview_description">Valdiklio peržiūra</string>
+    <string name="widget_configuration_default_theme_switch">Numatytoji tema</string>
+    <string name="widget_configuration_form_selector">Formos parinkiklis</string>
+    <string name="widget_configuration_circle_form_description">Apskritimas</string>
+    <string name="widget_configuration_rectangle_form_description">Stačiakampis</string>
+    <string name="widget_configuration_squircle_form_description">Suapvalintas stačiakampis</string>
+    <string name="widget_configuration_background_opacity">Fono neskaidrumas</string>
+    <string name="widget_configuration_color_selector">Spalvų parinkiklis</string>
+    <string name="widget_configuration_background_radio_button">Fonas</string>
+    <string name="widget_configuration_text_radio_button">Tekstas</string>
+</resources>

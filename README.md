@@ -1,6 +1,5 @@
 <p align="center">
-  <img src="https://github.com/sergey-levv/today-app-android/blob/master/github-resources/ic_launcher.png" alt="app_icon" />
-  <h1 align="center">TODAY APP</h1>
+  <img src="https://github.com/sergey-levv/today-app-android/blob/master/github-resources/feature_graphics.png" alt="feature_graphics" />
 </p>
 
 <p align="center">
@@ -15,8 +14,9 @@ The application shows current day of the year on the main screen. User can also 
 The application supports home screen widget which has two types of size: 1x1 and 2x2. User can customize widget's style on configuration screen. Widget customization allows user to change widget's form, background color, background opacity and text color. Tapping on the widget's text will copy current day of the year value to clipboard.
 ## User interface
 <p align="center">
-  <img src="https://github.com/sergey-levv/today-app-android/blob/master/github-resources/main_screen.gif" width="254" alt="main_screen" /><img src="https://github.com/sergey-levv/today-app-android/blob/master/github-resources/settings_screen.gif" width="254" alt="settings_screen" /><img src="https://github.com/sergey-levv/today-app-android/blob/master/github-resources/widgets.gif" width="254" alt="widgets" />
+  <img src="https://github.com/sergey-levv/today-app-android/blob/master/github-resources/main_screen_1.png" width="254" alt="main_screen" />   <img src="https://github.com/sergey-levv/today-app-android/blob/master/github-resources/settings.png" width="254" alt="settings" /><br/>
+  <img src="https://github.com/sergey-levv/today-app-android/blob/master/github-resources/widget_config.png" width="254" alt="widget_configuration_screen" />   <img src="https://github.com/sergey-levv/today-app-android/blob/master/github-resources/widgets.png" width="254" alt="widgets" />
 </p>
 
 ## License
-Today app is distributed under the [GNU General Public License v3.0](https://github.com/Okvel/android-car-logbook/blob/master/LICENSE)
+All rights reserved. Source code cannot be modified or redistributed without explicit permission from the author.

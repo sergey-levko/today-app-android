@@ -7,15 +7,20 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
-import android.widget.ImageButton
-import android.widget.ProgressBar
-import android.widget.TextView
+import android.os.Handler
+import android.os.Looper
+import android.util.TypedValue
+import android.view.View
+import android.view.ViewTreeObserver
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import by.liauko.siarhei.app.today.R
+import by.liauko.siarhei.app.today.databinding.ActivityMainBinding
 import java.text.DateFormat
 import java.util.Calendar
 import java.util.Date
@@ -29,15 +34,15 @@ import java.util.GregorianCalendar
  */
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var currentDateTextView: TextView
-    private lateinit var dayTextView: TextView
-    private lateinit var dayProgressBar: ProgressBar
-
+    private lateinit var viewBinding: ActivityMainBinding
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        installSplashScreen()
+        viewBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(viewBinding.root)
+        showSplashScreen()
 
         AppCompatDelegate.setDefaultNightMode(
             if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P)
@@ -50,12 +55,11 @@ class MainActivity : AppCompatActivity() {
 
         sharedPreferences = applicationContext.getSharedPreferences(getString(R.string.shared_preferences_name), Context.MODE_PRIVATE)
 
-        initElements()
-        initData()
+        viewBinding.settingsFab.setOnClickListener { startActivity(
+            Intent(applicationContext, SettingsActivity::class.java)
+        ) }
 
-        if (savedInstanceState == null) {
-            startActivity(Intent(applicationContext, LaunchScreenActivity::class.java))
-        }
+        initData()
     }
 
     override fun onResume() {
@@ -64,28 +68,45 @@ class MainActivity : AppCompatActivity() {
         initData()
     }
 
-    private fun initElements() {
-        currentDateTextView = findViewById(R.id.current_date)
-        dayTextView = findViewById(R.id.day_of_year_text)
-        dayProgressBar = findViewById(R.id.progressBar)
+    /**
+     * Wait 1 second to show splash screen
+     */
+    private fun showSplashScreen() {
+        var ready = false
+        Handler(Looper.getMainLooper()).postDelayed({
+            ready = true
+        }, 1000)
+        val content = findViewById<View>(android.R.id.content)
+        content.viewTreeObserver.addOnPreDrawListener(
+            object : ViewTreeObserver.OnPreDrawListener {
+                override fun onPreDraw(): Boolean {
+                    if (ready) {
+                        content.viewTreeObserver.removeOnPreDrawListener(this)
+                    }
 
-        findViewById<ImageButton>(R.id.settings_button).setOnClickListener { startActivity(Intent(applicationContext, SettingsActivity::class.java)) }
+                    return ready
+                }
+            }
+        )
     }
 
     private fun initData() {
-        currentDateTextView.text = DateFormat.getDateInstance().format(Date(System.currentTimeMillis()))
+        viewBinding.currentDate.text = DateFormat.getDateInstance().format(Date(System.currentTimeMillis()))
 
         val showTotalDays = sharedPreferences.getBoolean(getString(R.string.total_days_key), false)
 
         val currentDay = GregorianCalendar.getInstance().get(Calendar.DAY_OF_YEAR)
         val lastDayOfYear = GregorianCalendar.getInstance().getActualMaximum(Calendar.DAY_OF_YEAR)
-        val dayText = if (showTotalDays) {
-            currentDay.toString() + getString(R.string.days_delimiter) + lastDayOfYear.toString()
+        if (showTotalDays) {
+            viewBinding.dayOfYearText.text = getString(R.string.total_days_format, currentDay, lastDayOfYear)
+            if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                viewBinding.dayOfYearText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 38f)
+            }
         } else {
-            currentDay.toString()
+            viewBinding.dayOfYearText.text = currentDay.toString()
+            viewBinding.dayOfYearText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48f)
         }
-        dayTextView.text = dayText
-        dayTextView.setOnClickListener {
+        viewBinding.dayOfYearText.setOnClickListener {
             val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             clipboard.setPrimaryClip(ClipData.newPlainText(getString(R.string.clipboard_day_of_year_label), currentDay.toString()))
             Toast.makeText(
@@ -94,8 +115,8 @@ class MainActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
         }
-        dayProgressBar.progress = currentDay
-        dayProgressBar.max = lastDayOfYear
+        viewBinding.progressBar.progress = currentDay
+        viewBinding.progressBar.max = lastDayOfYear
     }
 
     private fun createNotificationChannel() {
@@ -104,7 +125,7 @@ class MainActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val name = "channel_name"
             val descriptionText = "Channel_description"
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val importance = NotificationManager.IMPORTANCE_HIGH
             val channel = NotificationChannel(getString(R.string.notification_channel_id), name, importance).apply {
                 description = descriptionText
             }

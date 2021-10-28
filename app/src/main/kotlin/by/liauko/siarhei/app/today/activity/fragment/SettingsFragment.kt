@@ -12,7 +12,7 @@ import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
 import by.liauko.siarhei.app.today.R
 import by.liauko.siarhei.app.today.service.ApplicationToolsStatusService
-import by.liauko.siarhei.app.today.service.DayOfYearUpdateReceiver
+import by.liauko.siarhei.app.today.receiver.DayOfYearUpdateReceiver
 
 /**
  * Class managing application settings items
@@ -35,7 +35,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         sharedPreferences = requireContext().getSharedPreferences(getString(R.string.shared_preferences_name), Context.MODE_PRIVATE)
         alarmManager = requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
         alarmIntent = Intent(requireContext(), DayOfYearUpdateReceiver::class.java).let {
-            PendingIntent.getBroadcast(requireContext(), 0, it, 0)
+            PendingIntent.getBroadcast(requireContext(), 0, it, PendingIntent.FLAG_IMMUTABLE)
         }
 
         totalDayOfYearKey = getString(R.string.total_days_key)

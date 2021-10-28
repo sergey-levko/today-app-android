@@ -5,6 +5,7 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.ClipData
 import android.content.ClipboardManager
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.util.TypedValue
@@ -24,23 +25,34 @@ import java.util.GregorianCalendar
  */
 open class DayOfYearWidget : AppWidgetProvider() {
 
+    /**
+     * Updates each active widget.
+     *
+     * @param context application context
+     * @param appWidgetManager an [AppWidgetManager] object
+     * @param appWidgetIds the application widget identifiers for which an update is needed
+     */
     override fun onUpdate(
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
-        // There may be multiple widgets active, so update all of them
         for (appWidgetId in appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId)
         }
     }
 
+    /**
+     * Called when widget is removed.
+     *
+     * @param context application context
+     * @param appWidgetIds the application widget identifiers which was removed
+     */
     override fun onDeleted(context: Context, appWidgetIds: IntArray) {
-
         for (appWidgetId in appWidgetIds) {
             context.getSharedPreferences(context.getString(R.string.widget_shared_preferences_name), Context.MODE_PRIVATE)
                 .edit()
-                .remove("${appWidgetId}_form")
+                .remove("${appWidgetId}_form_name")
                 .remove("${appWidgetId}_background_color")
                 .remove("${appWidgetId}_opacity")
                 .remove("${appWidgetId}_text_color")
@@ -48,16 +60,41 @@ open class DayOfYearWidget : AppWidgetProvider() {
         }
     }
 
+    /**
+     * Called when the first widget is created.
+     *
+     * @param context application context
+     */
     override fun onEnabled(context: Context) {
-        // Enter relevant functionality for when the first widget is created
-        ApplicationToolsStatusService(context).updateWidgetStatus(true)
+        val widgetManager = AppWidgetManager.getInstance(context)
+        var ids = widgetManager.getAppWidgetIds(ComponentName(context, DayOfYearWidget::class.java))
+        ids += widgetManager.getAppWidgetIds(ComponentName(context, DayOfYearBigWidget::class.java))
+        if (ids.size > 1) {
+            ApplicationToolsStatusService(context).updateWidgetStatus(true)
+        }
     }
 
+    /**
+     * Called when the last widget with particular class is disabled. Need to check if widgets with
+     * other class still exist.
+     *
+     * @param context application context
+     */
     override fun onDisabled(context: Context) {
-        // Enter relevant functionality for when the last widget is disabled
-        ApplicationToolsStatusService(context).updateWidgetStatus(false)
+        val widgetManager = AppWidgetManager.getInstance(context)
+        var ids = widgetManager.getAppWidgetIds(ComponentName(context, DayOfYearWidget::class.java))
+        ids += widgetManager.getAppWidgetIds(ComponentName(context, DayOfYearBigWidget::class.java))
+        if (ids.isEmpty()) {
+            ApplicationToolsStatusService(context).updateWidgetStatus(false)
+        }
     }
 
+    /**
+     * Copy current day of the year to clipboard and show toast with message.
+     *
+     * @param context application context
+     * @param intent intent being received
+     */
     override fun onReceive(context: Context, intent: Intent) {
         super.onReceive(context, intent)
 
@@ -85,9 +122,8 @@ internal fun updateAppWidget(
     appWidgetManager: AppWidgetManager,
     appWidgetId: Int
 ) {
-    val options = appWidgetManager.getAppWidgetOptions(appWidgetId)
-    val width = options.get(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH) as Int
-    val textSize = if (width < 110) 20f else 40f
+    val ids = appWidgetManager.getAppWidgetIds(ComponentName(context, DayOfYearWidget::class.java))
+    val textSize = if (appWidgetId in ids) 20f else 40f
 
     val sharedPreferences = context.getSharedPreferences(
         context.getString(R.string.widget_shared_preferences_name),
@@ -98,9 +134,36 @@ internal fun updateAppWidget(
 
     // Construct the RemoteViews object
     val views = RemoteViews(context.packageName, R.layout.widget_day_of_year)
+
+    // BAD CODE
+    // WILL REMOVE IN 1.0.4
+    // ---
+    val resId = sharedPreferences.getInt("${appWidgetId}_form", -1)
+    if (ApplicationConstants.previousFormIds.contains(resId)) {
+        val name = when(ApplicationConstants.previousFormIds.indexOf(resId)) {
+            0 -> context.resources.getResourceEntryName(R.drawable.widget_background_circle)
+            1 -> context.resources.getResourceEntryName(R.drawable.widget_background_rectangle)
+            2 -> context.resources.getResourceEntryName(R.drawable.widget_background_squircle)
+            else -> context.resources.getResourceEntryName(R.drawable.widget_background_circle)
+        }
+
+        sharedPreferences.edit()
+            .putString("${appWidgetId}_form_name", name)
+            .remove("${appWidgetId}_form")
+            .apply()
+    }
+    // ---
+
     views.setImageViewResource(
         R.id.widget_background,
-        sharedPreferences.getInt("${appWidgetId}_form", R.drawable.widget_background_circle)
+        context.resources.getIdentifier(
+            sharedPreferences.getString(
+                "${appWidgetId}_form_name",
+                context.resources.getResourceEntryName(R.drawable.widget_background_circle)
+            ),
+            "drawable",
+            ApplicationConstants.APP_PACKAGE
+        )
     )
     views.setTextViewTextSize(R.id.widget_text, TypedValue.COMPLEX_UNIT_SP, textSize)
     views.setTextViewText(
@@ -133,7 +196,7 @@ internal fun updateAppWidget(
 
     val intent = Intent(context, DayOfYearWidget::class.java)
     intent.action = COPY_ACTION
-    views.setOnClickPendingIntent(R.id.widget_text, PendingIntent.getBroadcast(context, 0, intent, 0))
+    views.setOnClickPendingIntent(R.id.widget_text, PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE))
 
     // Instruct the widget manager to update the widget
     appWidgetManager.updateAppWidget(appWidgetId, views)
