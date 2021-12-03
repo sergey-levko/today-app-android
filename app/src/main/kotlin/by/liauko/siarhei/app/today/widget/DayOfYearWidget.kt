@@ -135,25 +135,6 @@ internal fun updateAppWidget(
     // Construct the RemoteViews object
     val views = RemoteViews(context.packageName, R.layout.widget_day_of_year)
 
-    // BAD CODE
-    // WILL REMOVE IN 1.0.4
-    // ---
-    val resId = sharedPreferences.getInt("${appWidgetId}_form", -1)
-    if (ApplicationConstants.previousFormIds.contains(resId)) {
-        val name = when(ApplicationConstants.previousFormIds.indexOf(resId)) {
-            0 -> context.resources.getResourceEntryName(R.drawable.widget_background_circle)
-            1 -> context.resources.getResourceEntryName(R.drawable.widget_background_rectangle)
-            2 -> context.resources.getResourceEntryName(R.drawable.widget_background_squircle)
-            else -> context.resources.getResourceEntryName(R.drawable.widget_background_circle)
-        }
-
-        sharedPreferences.edit()
-            .putString("${appWidgetId}_form_name", name)
-            .remove("${appWidgetId}_form")
-            .apply()
-    }
-    // ---
-
     views.setImageViewResource(
         R.id.widget_background,
         context.resources.getIdentifier(
