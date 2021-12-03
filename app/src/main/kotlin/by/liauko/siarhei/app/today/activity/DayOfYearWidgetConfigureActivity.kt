@@ -8,12 +8,12 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.get
-import androidx.core.view.size
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import by.liauko.siarhei.app.today.ApplicationConstants
 import by.liauko.siarhei.app.today.R
 import by.liauko.siarhei.app.today.databinding.ActivityWidgetConfigurationBinding
+import by.liauko.siarhei.app.today.recyclerview.adapter.ColorsRecyclerViewAdapter
 import by.liauko.siarhei.app.today.viewmodel.WidgetParametersViewModel
 import by.liauko.siarhei.app.today.widget.updateAppWidget
 import java.util.Calendar
@@ -176,20 +176,25 @@ class DayOfYearWidgetConfigureActivity : AppCompatActivity() {
 
         // Color selector initialization
         val colors = resources.getIntArray(R.array.colors_picker_values)
-        for (i in 0 until viewBinding.colorsGrid.size) {
-            val imageView = viewBinding.colorsGrid[i] as ImageView
-            imageView.setColorFilter(colors[i])
-            imageView.tag = colors[i]
-            imageView.setOnClickListener {
-                val color = it.tag as Int
-                if (viewBinding.backgroundRadioButton.isChecked) {
-                    viewBinding.widgetPreview.setColorFilter(color)
-                    model.backgroundColor = color
-                } else {
-                    viewBinding.dayPreviewText.setTextColor(color)
-                    model.textColor = color
+        val rvAdapter = ColorsRecyclerViewAdapter(
+            colors,
+            object: ColorsRecyclerViewAdapter.RecyclerViewOnItemClickListener {
+                override fun onItemClick(item: Int) {
+                    if (viewBinding.backgroundRadioButton.isChecked) {
+                        viewBinding.widgetPreview.setColorFilter(item)
+                        model.backgroundColor = item
+                    } else {
+                        viewBinding.dayPreviewText.setTextColor(item)
+                        model.textColor = item
+                    }
                 }
             }
+        )
+        viewBinding.colorsRv.apply {
+            setHasFixedSize(true)
+            layoutManager = GridLayoutManager(context, 10)
+            adapter = rvAdapter
         }
+        viewBinding.colorsRv.isNestedScrollingEnabled = false
     }
 }
