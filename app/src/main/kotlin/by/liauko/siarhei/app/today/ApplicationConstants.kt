@@ -38,13 +38,4 @@ object ApplicationConstants {
         "android.intent.action.BOOT_COMPLETED",
         "android.intent.action.MY_PACKAGE_REPLACED"
     )
-
-    /**
-     * List of old drawable IDs of widget forms.
-     *
-     * WILL REMOVE IN VERSION 1.0.4
-     *
-     * @since 1.1.4
-     */
-    val previousFormIds = listOf(2131230883, 2131230884, 2131230885)
 }
