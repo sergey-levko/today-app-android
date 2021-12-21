@@ -21,7 +21,8 @@
     <string name="widget_configuration_menu_confirm">Bestätigen</string>
     <string name="widget_configuration_preview">Vorschau</string>
     <string name="widget_configuration_preview_description">Widget-Vorschau</string>
-    <string name="widget_configuration_default_theme_switch">Standardthema</string>
+    <string name="widget_configuration_default_theme_switch">Standardthema verwenden</string>
+    <string name="widget_configuration_system_colors_switch">Verwenden Sie Systemfarben</string>
     <string name="widget_configuration_form_selector">Formularauswahl</string>
     <string name="widget_configuration_circle_form_description">Kreis</string>
     <string name="widget_configuration_rectangle_form_description">Rechteck</string>

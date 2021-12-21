@@ -29,7 +29,8 @@
     <string name="widget_configuration_menu_confirm">Confirm</string>
     <string name="widget_configuration_preview">Preview</string>
     <string name="widget_configuration_preview_description">Widget preview</string>
-    <string name="widget_configuration_default_theme_switch">Default theme</string>
+    <string name="widget_configuration_default_theme_switch">Use default theme</string>
+    <string name="widget_configuration_system_colors_switch">Use system colors</string>
     <string name="widget_configuration_form_selector">Form selector</string>
     <string name="widget_configuration_circle_form_description">Circle</string>
     <string name="widget_configuration_rectangle_form_description">Rectangle</string>

@@ -21,7 +21,8 @@
     <string name="widget_configuration_menu_confirm">Patvirtinti</string>
     <string name="widget_configuration_preview">Peržiūra</string>
     <string name="widget_configuration_preview_description">Valdiklio peržiūra</string>
-    <string name="widget_configuration_default_theme_switch">Numatytoji tema</string>
+    <string name="widget_configuration_default_theme_switch">Naudokite numatytąją temą</string>
+    <string name="widget_configuration_system_colors_switch">Naudokite sistemos spalvas</string>
     <string name="widget_configuration_form_selector">Formos parinkiklis</string>
     <string name="widget_configuration_circle_form_description">Apskritimas</string>
     <string name="widget_configuration_rectangle_form_description">Stačiakampis</string>

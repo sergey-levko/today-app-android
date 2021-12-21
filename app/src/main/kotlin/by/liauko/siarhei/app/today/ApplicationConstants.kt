@@ -23,13 +23,6 @@ object ApplicationConstants {
     const val OPACITY_MAX_VALUE = 255
 
     /**
-     * Application package
-     *
-     * @since 1.1.4
-     */
-    const val APP_PACKAGE = "by.liauko.siarhei.app.today"
-
-    /**
      * List of system actions for which notification update required
      *
      * @since 1.1.4

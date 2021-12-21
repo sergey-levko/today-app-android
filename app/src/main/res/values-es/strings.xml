@@ -22,6 +22,7 @@
     <string name="widget_configuration_preview">Avance</string>
     <string name="widget_configuration_preview_description">Imagen de vista previa</string>
     <string name="widget_configuration_default_theme_switch">Usar tema predeterminado</string>
+    <string name="widget_configuration_system_colors_switch">Utilice colores del sistema</string>
     <string name="widget_configuration_form_selector">Selector de formulario</string>
     <string name="widget_configuration_circle_form_description">Circulo</string>
     <string name="widget_configuration_rectangle_form_description">Rectángulo</string>
