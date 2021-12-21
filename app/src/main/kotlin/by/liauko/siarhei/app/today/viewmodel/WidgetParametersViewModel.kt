@@ -17,5 +17,5 @@ class WidgetParametersViewModel(application: Application) : AndroidViewModel(app
     var backgroundColor: Int =
         getApplication<Application>().applicationContext.getColor(R.color.widgetBackground)
     var opacity: Int = ApplicationConstants.OPACITY_MAX_VALUE
-    var textColor: Int = getApplication<Application>().applicationContext.getColor(R.color.primary)
+    var textColor: Int = getApplication<Application>().applicationContext.getColor(R.color.widgetText)
 }

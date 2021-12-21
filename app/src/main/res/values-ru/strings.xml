@@ -23,7 +23,8 @@
     <string name="widget_configuration_menu_confirm">Подтвердить</string>
     <string name="widget_configuration_preview">Предпросмотр</string>
     <string name="widget_configuration_preview_description">Предпросмотр виджета</string>
-    <string name="widget_configuration_default_theme_switch">Стандартная тема</string>
+    <string name="widget_configuration_default_theme_switch">Использовать стандартную тему</string>
+    <string name="widget_configuration_system_colors_switch">Использовать цвета системы</string>
     <string name="widget_configuration_form_selector">Выбор формы</string>
     <string name="widget_configuration_circle_form_description">Круг</string>
     <string name="widget_configuration_rectangle_form_description">Квадрат</string>

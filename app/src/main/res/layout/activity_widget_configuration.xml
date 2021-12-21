@@ -45,10 +45,51 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/widget_config_preview_model_text_size"
             android:layout_centerInParent="true"
-            android:textColor="@color/primary"
+            android:textColor="@color/widgetText"
             android:textStyle="bold" />
 
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/widget_config_margin"
+        android:text="@string/widget_configuration_form_selector" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginVertical="@dimen/widget_config_margin">
+
+        <ImageView
+            android:id="@+id/circle_form"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/widget_config_image_view_horizontal_margin"
+            android:src="@drawable/widget_form_circle_icon"
+            android:contentDescription="@string/widget_configuration_circle_form_description" />
+
+        <ImageView
+            android:id="@+id/rectangle_form"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/widget_config_image_view_horizontal_margin"
+            android:src="@drawable/widget_form_rectangle_icon"
+            android:contentDescription="@string/widget_configuration_rectangle_form_description" />
+
+        <ImageView
+            android:id="@+id/squircle_form"
+            android:layout_weight="1"
+            android:paddingHorizontal="@dimen/widget_config_image_view_horizontal_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/widget_form_squircle_icon"
+            android:contentDescription="@string/widget_configuration_squircle_form_description"/>
+
+    </LinearLayout>
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/theme_switch"
@@ -68,47 +109,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/widget_config_margin"
-                android:text="@string/widget_configuration_form_selector" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginVertical="@dimen/widget_config_margin">
-
-                <ImageView
-                    android:id="@+id/circle_form"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="@dimen/widget_config_image_view_horizontal_margin"
-                    android:src="@drawable/widget_form_circle_icon"
-                    android:contentDescription="@string/widget_configuration_circle_form_description" />
-
-                <ImageView
-                    android:id="@+id/rectangle_form"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="@dimen/widget_config_image_view_horizontal_margin"
-                    android:src="@drawable/widget_form_rectangle_icon"
-                    android:contentDescription="@string/widget_configuration_rectangle_form_description" />
-
-                <ImageView
-                    android:id="@+id/squircle_form"
-                    android:layout_weight="1"
-                    android:paddingHorizontal="@dimen/widget_config_image_view_horizontal_margin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/widget_form_squircle_icon"
-                    android:contentDescription="@string/widget_configuration_squircle_form_description"/>
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"

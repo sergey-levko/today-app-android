@@ -21,6 +21,7 @@
 
     <!-- Dimens for widget layout -->
     <dimen name="widget_margin_bottom">14dp</dimen>
-    <dimen name="widget_layout_margin">2dp</dimen>
+    <dimen name="widget_layout_margin">3dp</dimen>
     <dimen name="widget_text_size">20sp</dimen>
+    <dimen name="widget_large_text_size">40sp</dimen>
 </resources>

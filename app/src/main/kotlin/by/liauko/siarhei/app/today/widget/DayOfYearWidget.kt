@@ -50,8 +50,12 @@ open class DayOfYearWidget : AppWidgetProvider() {
      */
     override fun onDeleted(context: Context, appWidgetIds: IntArray) {
         for (appWidgetId in appWidgetIds) {
-            context.getSharedPreferences(context.getString(R.string.widget_shared_preferences_name), Context.MODE_PRIVATE)
+            context.getSharedPreferences(
+                context.getString(R.string.widget_shared_preferences_name),
+                Context.MODE_PRIVATE
+            )
                 .edit()
+                .remove("${appWidgetId}_is_default")
                 .remove("${appWidgetId}_form_name")
                 .remove("${appWidgetId}_background_color")
                 .remove("${appWidgetId}_opacity")
@@ -123,19 +127,18 @@ internal fun updateAppWidget(
     appWidgetId: Int
 ) {
     val ids = appWidgetManager.getAppWidgetIds(ComponentName(context, DayOfYearWidget::class.java))
-    val textSize = if (appWidgetId in ids) 20f else 40f
+    val remoteView = if (appWidgetId in ids) {
+        RemoteViews(context.packageName, R.layout.widget_day_of_year)
+    } else {
+        RemoteViews(context.packageName, R.layout.widget_day_of_year_large)
+    }
 
     val sharedPreferences = context.getSharedPreferences(
         context.getString(R.string.widget_shared_preferences_name),
         Context.MODE_PRIVATE
     )
 
-    val isDefaultTheme = sharedPreferences.getBoolean("${appWidgetId}_is_default", true)
-
-    // Construct the RemoteViews object
-    val views = RemoteViews(context.packageName, R.layout.widget_day_of_year)
-
-    views.setImageViewResource(
+    remoteView.setImageViewResource(
         R.id.widget_background,
         context.resources.getIdentifier(
             sharedPreferences.getString(
@@ -143,17 +146,27 @@ internal fun updateAppWidget(
                 context.resources.getResourceEntryName(R.drawable.widget_background_circle)
             ),
             "drawable",
-            ApplicationConstants.APP_PACKAGE
+            context.packageName
         )
     )
-    views.setTextViewTextSize(R.id.widget_text, TypedValue.COMPLEX_UNIT_SP, textSize)
-    views.setTextViewText(
+    remoteView.setTextViewText(
         R.id.widget_text,
         GregorianCalendar.getInstance().get(Calendar.DAY_OF_YEAR).toString()
     )
 
-    if (!isDefaultTheme) {
-        views.setInt(
+    val options = appWidgetManager.getAppWidgetOptions(appWidgetId)
+    val width = options.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH)
+    val height = options.getInt(AppWidgetManager.OPTION_APPWIDGET_MAX_HEIGHT)
+    if (width != 0 || height != 0) {
+        remoteView.setTextViewTextSize(
+            R.id.widget_text,
+            TypedValue.COMPLEX_UNIT_SP,
+            (if (width < height) width else height) / 3f
+        )
+    }
+
+    if (!sharedPreferences.getBoolean("${appWidgetId}_is_default", true)) {
+        remoteView.setInt(
             R.id.widget_background,
             "setColorFilter",
             sharedPreferences.getInt(
@@ -161,7 +174,7 @@ internal fun updateAppWidget(
                 context.getColor(R.color.widgetBackground)
             )
         )
-        views.setInt(
+        remoteView.setInt(
             R.id.widget_background,
             "setImageAlpha",
             sharedPreferences.getInt(
@@ -169,16 +182,22 @@ internal fun updateAppWidget(
                 ApplicationConstants.OPACITY_MAX_VALUE
             )
         )
-        views.setTextColor(
+        remoteView.setTextColor(
             R.id.widget_text,
-            sharedPreferences.getInt("${appWidgetId}_text_color", context.getColor(R.color.primary))
+            sharedPreferences.getInt(
+                "${appWidgetId}_text_color",
+                context.getColor(R.color.widgetText)
+            )
         )
     }
 
     val intent = Intent(context, DayOfYearWidget::class.java)
     intent.action = COPY_ACTION
-    views.setOnClickPendingIntent(R.id.widget_text, PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE))
+    remoteView.setOnClickPendingIntent(
+        R.id.widget_text,
+        PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+    )
 
     // Instruct the widget manager to update the widget
-    appWidgetManager.updateAppWidget(appWidgetId, views)
+    appWidgetManager.updateAppWidget(appWidgetId, remoteView)
 }
