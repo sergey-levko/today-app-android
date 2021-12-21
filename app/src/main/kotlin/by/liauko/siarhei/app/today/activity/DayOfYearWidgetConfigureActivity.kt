@@ -3,6 +3,7 @@ package by.liauko.siarhei.app.today.activity
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -64,6 +65,12 @@ class DayOfYearWidgetConfigureActivity : AppCompatActivity() {
         viewBinding = ActivityWidgetConfigurationBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            viewBinding.themeSwitch.text = getString(R.string.widget_configuration_system_colors_switch)
+        } else {
+            viewBinding.themeSwitch.text = getString(R.string.widget_configuration_default_theme_switch)
+        }
+
         // Set the result to CANCELED.  This will cause the widget host to cancel
         // out of the widget placement if the user presses the back button.
         setResult(RESULT_CANCELED)
@@ -98,10 +105,10 @@ class DayOfYearWidgetConfigureActivity : AppCompatActivity() {
             val sharedPreferences = getSharedPreferences(getString(R.string.widget_shared_preferences_name), Context.MODE_PRIVATE)
             sharedPreferences.edit()
                 .putBoolean("${appWidgetId}_is_default", isDefaultTheme)
+                .putString("${appWidgetId}_form_name", model.form)
                 .apply()
             if (!isDefaultTheme) {
                 sharedPreferences.edit()
-                    .putString("${appWidgetId}_form_name", model.form)
                     .putInt("${appWidgetId}_background_color", model.backgroundColor)
                     .putInt("${appWidgetId}_opacity", model.opacity)
                     .putInt("${appWidgetId}_text_color", model.textColor)
@@ -128,12 +135,8 @@ class DayOfYearWidgetConfigureActivity : AppCompatActivity() {
             viewBinding.customizationForm.visibility = if (!isChecked) View.VISIBLE else View.GONE
 
             if (isChecked) {
-                viewBinding.widgetPreview.setImageResource(R.drawable.widget_background_circle)
                 viewBinding.widgetPreview.setColorFilter(getColor(R.color.widgetBackground))
-                viewBinding.dayPreviewText.setTextColor(getColor(R.color.primary))
-                viewBinding.circleForm.setColorFilter(getColor(R.color.primary))
-                viewBinding.rectangleForm.setColorFilter(getColor(R.color.widgetConfigFormsDisabled))
-                viewBinding.squircleForm.setColorFilter(getColor(R.color.widgetConfigFormsDisabled))
+                viewBinding.dayPreviewText.setTextColor(getColor(R.color.widgetText))
             }
 
             isDefaultTheme = isChecked

@@ -21,7 +21,8 @@
     <string name="widget_configuration_menu_confirm">Confirmer</string>
     <string name="widget_configuration_preview">Aperçu</string>
     <string name="widget_configuration_preview_description">Aperçu des widgets</string>
-    <string name="widget_configuration_default_theme_switch">Thème par défaut</string>
+    <string name="widget_configuration_default_theme_switch">Utiliser le thème par défaut</string>
+    <string name="widget_configuration_system_colors_switch">Utilisez les couleurs du système</string>
     <string name="widget_configuration_form_selector">Sélecteur de formulaire</string>
     <string name="widget_configuration_circle_form_description">Cercle</string>
     <string name="widget_configuration_rectangle_form_description">Rectangle</string>
