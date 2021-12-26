@@ -19,6 +19,7 @@
     <color name="toolbarPrimary">#202020</color>
 
     <color name="widgetBackground">#202020</color>
+    <color name="widgetText">#ABBD9A</color>
 
     <color name="launchScreenBackground">#202020</color>
     <color name="launchScreenAppLogo">#ABBD9A</color>
