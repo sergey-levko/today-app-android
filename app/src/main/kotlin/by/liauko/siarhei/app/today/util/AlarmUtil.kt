@@ -35,7 +35,7 @@ object AlarmUtil {
         }
 
         alarmManager.setExact(
-            AlarmManager.RTC_WAKEUP,
+            AlarmManager.RTC,
             calendar.timeInMillis,
             alarmIntent
         )
