@@ -34,7 +34,7 @@ object AlarmUtil {
             set(Calendar.MILLISECOND, 0)
         }
 
-        alarmManager.setExactAndAllowWhileIdle(
+        alarmManager.setExact(
             AlarmManager.RTC,
             calendar.timeInMillis,
             alarmIntent
