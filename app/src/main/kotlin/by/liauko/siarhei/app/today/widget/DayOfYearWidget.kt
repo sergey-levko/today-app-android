@@ -73,7 +73,7 @@ open class DayOfYearWidget : AppWidgetProvider() {
         val widgetManager = AppWidgetManager.getInstance(context)
         var ids = widgetManager.getAppWidgetIds(ComponentName(context, DayOfYearWidget::class.java))
         ids += widgetManager.getAppWidgetIds(ComponentName(context, DayOfYearBigWidget::class.java))
-        if (ids.size > 1) {
+        if (ids.size == 1) {
             ApplicationToolsStatusService(context).updateWidgetStatus(true)
         }
     }
