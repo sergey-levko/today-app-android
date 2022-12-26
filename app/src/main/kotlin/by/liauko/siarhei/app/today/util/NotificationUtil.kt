@@ -47,6 +47,7 @@ object NotificationUtil {
                     .setSmallIcon(Icon.createWithBitmap(bitmap))
                     .setContentTitle(context.getString(R.string.notification_text, currentDay))
                     .setForegroundServiceBehavior(Notification.FOREGROUND_SERVICE_IMMEDIATE)
+                    .setVisibility(Notification.VISIBILITY_PUBLIC)
                     .build()
             }
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
@@ -56,6 +57,7 @@ object NotificationUtil {
                 )
                     .setSmallIcon(Icon.createWithBitmap(bitmap))
                     .setContentTitle(context.getString(R.string.notification_text, currentDay))
+                    .setVisibility(Notification.VISIBILITY_PUBLIC)
                     .build()
 
             }
@@ -67,6 +69,7 @@ object NotificationUtil {
                     .setSmallIcon(R.drawable.ic_action_name)
                     .setContentTitle(context.getString(R.string.notification_text, currentDay))
                     .setPriority(NotificationCompat.PRIORITY_HIGH)
+                    .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                     .build()
             }
         }

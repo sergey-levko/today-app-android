@@ -16,6 +16,14 @@
     <string name="settings_preference_version_title">Версия</string>
 
     <string name="notification_text">Сегодня %d день года</string>
+    <string name="notification_channel_name">Текущий день года</string>
+    <string name="notification_channel_description">Показывать текущий день года в статус баре</string>
+
+    <string name="notification_permission_dialog_title">Требуется разрешение</string>
+    <string name="notification_permission_dialog_text">Чтобы отображать текущий день года в статус баре вы должны разрешить приложению показывать уведомления\n\nОткрыть центр управления уведомлениями приложения?</string>
+
+    <string name="open">Открыть</string>
+    <string name="cancel">Отмена</string>
 
     <string name="navigation_back_button_description">Назад</string>
 
