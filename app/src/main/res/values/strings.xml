@@ -20,6 +20,14 @@
     <string name="total_days_format" translatable="false">%d/%d</string>
 
     <string name="notification_text">Today is %d day of the year</string>
+    <string name="notification_channel_name">Current day of the year</string>
+    <string name="notification_channel_description">Show the current day of the year in status bar</string>
+
+    <string name="notification_permission_dialog_title">Permission required</string>
+    <string name="notification_permission_dialog_text">To display the current day of the year in status bar you must allow the application to show notifications\n\nOpen application\'s notification control center?</string>
+
+    <string name="open">Open</string>
+    <string name="cancel">Cancel</string>
 
     <string name="navigation_back_button_description">Back</string>
 
