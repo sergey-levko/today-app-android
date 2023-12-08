@@ -10,8 +10,8 @@ android {
         applicationId "by.liauko.siarhei.app.today"
         minSdkVersion 23
         targetSdkVersion 33
-        versionCode 11
-        versionName "1.1.9-SNAPSHOT"
+        versionCode 12
+        versionName "2.0.0-SNAPSHOT"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
