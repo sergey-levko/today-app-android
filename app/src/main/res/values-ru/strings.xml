@@ -3,6 +3,8 @@
     <string name="today_is_text">Сегодня</string>
     <string name="day_copied_toast_message">День года скопирован</string>
 
+    <string name="day_of_the_year_title">День года</string>
+    <string name="days_left_title">Дней осталось</string>
     <string name="settings_description">Настройки</string>
 
     <string name="settings_title">Настройки</string>
@@ -41,4 +43,5 @@
     <string name="widget_configuration_color_selector">Выбор цвета</string>
     <string name="widget_configuration_background_radio_button">Фон</string>
     <string name="widget_configuration_text_radio_button">Текст</string>
+    <string name="week_number_title">Номер недели</string>
 </resources>

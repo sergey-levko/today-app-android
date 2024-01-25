@@ -2,6 +2,8 @@
 <resources>
     <dimen name="fab_margin">24dp</dimen>
     <dimen name="day_text_size">48sp</dimen>
+    <dimen name="card_height">148dp</dimen>
+    <dimen name="card_padding">4dp</dimen>
 
     <!-- Dimens for landscape layout -->
     <dimen name="text_margin_top_land">24dp</dimen>

@@ -4,6 +4,9 @@
     <string name="today_is_text">Today is</string>
     <string name="clipboard_day_of_year_label" translatable="false">current_day_of_the_year</string>
     <string name="day_copied_toast_message">Day of the year was copied</string>
+    <string name="day_of_the_year_title">Day of the year</string>
+    <string name="days_left_title">Days left</string>
+    <string name="week_number_title">Week number</string>
 
     <string name="settings_description">Settings</string>
 
