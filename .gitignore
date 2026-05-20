@@ -172,3 +172,9 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+
+# Claude Code
+.claude/
+
+# Codemie
+.codemie/
